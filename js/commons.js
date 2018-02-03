@@ -55,11 +55,17 @@ mui.plusReady(function() {
 				return;
 			}
 			console.log(plus.webview.currentWebview().id + "未找到登陆用户信息，去到登陆页面" + window.localStorage.getItem(sessionKey));
-			mui.openWindow({
-				url: "/module/Public-Components/login.html",
-				id: "module/Public-Components/login.html",
-				createNew: true
-			})
+			if(plus.webview.getWebviewById("module/Public-Components/login.html")==null){
+				mui.openWindow({
+					url: "/module/Public-Components/login.html",
+					id: "module/Public-Components/login.html",
+					createNew: true
+				})
+			}else{
+				plus.webview.getWebviewById("module/Public-Components/login.html").show();
+			}
+			
+
 		} else {
 			console.log("自动登陆：" + JSON.parse(window.localStorage.getItem(sessionKey)).name + "token：" + window.localStorage.getItem(sessionKey));
 		}

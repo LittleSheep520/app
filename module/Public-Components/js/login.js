@@ -48,11 +48,19 @@ function login() {
 			console.log("登陆成功，去到首页，" + JSON.parse(window.localStorage.getItem(sessionKey)).name);
 			
 			/*var list=plus.webview.all();
+			var log="";
 			for(key in list){
-				console.log(JSON.stringify(list[key]));
+				console.log(JSON.stringify(list[key].id))
+				log+=JSON.stringify(list[key].id);
+			}
+			mui.alert(log);*/
+			plus.webview.currentWebview().close();
+			/*if(plus.webview.getWebviewById("HBuilder")==null){
+				mui.alert("fuckMUI NULL");
+			}else{
+				plus.webview.getWebviewById("HBuilder").show();
 			}*/
-			
-			plus.webview.getWebviewById("HBuilder").show();
+			mui.toast("欢迎回来, "+JSON.parse(window.localStorage.getItem(sessionKey)).name);
 			plus.webview.getWebviewById("module/Personal-Center/personal-center.html").reload(true);
 		}
 	})
