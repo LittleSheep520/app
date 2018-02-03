@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-card">
+			<!--页眉，放置标题-->
+			<div class="mui-card-header mui-card-media" id="idcard">
+				<img src="img/logo.png" style="width:20%;height:auto;margin-left:10px;margin-right:20px;" />
+				<div class="mui-media-body" style="padding:8px;">
+					<h3 id="account">您还未登录</h3>
+					<p>查看或编辑个人资料</p>
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="mui-card-content" style="padding:10px">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right" id="myMessage">
+						<span class="mui-badge mui-badge-danger">15</span>我的消息</a>
+						
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right" id="myPost">我的帖子</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right" id="myCollection">我的收藏</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right" id="personalDetails">个人详情</a>
+					</li>
+					<li class="mui-table-view-cell loginedHide" id="login">
+						<a class="mui-navigate-right">立即登录</a>
+					</li>
+					<li class="mui-table-view-cell notLoginHide">
+						<a class="mui-navigate-right" id="changePassword">修改密码</a>
+					</li>
+					<li class="mui-table-view-cell notLoginHide">
+						<a class="mui-navigate-right" id="logout">退出当前账户</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+		<script src="../../js/commons.js"></script>
+		<script src="js/personal-center.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				var page = mui.preload({
+					url: '../Public-Components/login.html',
+					id: 'login.html', //默认使用当前页面的url作为id
+					styles: {}, //窗口参数
+					extras: {} //自定义扩展参数
+				});
+			})
+			document.getElementById('login').addEventListener('tap', function() {
+				mui.openWindow({
+					url: '../Public-Components/login.html',
+					id: 'login.html'
+				});
+			});
+			document.getElementById('myMessage').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'myMessage.html',
+					id: 'myMessage.html'
+				});
+			});
+			document.getElementById('myPost').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'myPost.html',
+					id: 'myPost.html'
+				});
+			});
+			document.getElementById('myCollection').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'myCollection.html',
+					id: 'myCollection.html'
+				});
+			});
+			document.getElementById('personalDetails').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'personalDetails.html',
+					id: 'personalDetails.html'
+				});
+			});
+			document.getElementById('changePassword').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'changePassword.html',
+					id: 'changePassword.html'
+				});
+			});
+		</script>
+	</body>
+
+</html>

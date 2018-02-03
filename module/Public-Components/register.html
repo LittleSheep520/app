@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.mui-btn {
+				padding: 8px;
+			}
+			
+			.logo img {
+				width: 120px;
+				margin: 20px auto;
+				display: block;
+			}
+			
+			.yzm-hq {
+				color: #fff;
+				padding: 0.6rem;
+				width: 45%;
+				float: right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">注册</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded" style="margin: 10px;">
+				<div class="logo"><img src="img/reg.png" /></div>
+
+				<div class="mui-input-row">
+					<input type="text" id='phone' class="mui-input-clear" placeholder="请输入手机号码">
+				</div>
+				<button id="btn" class="yzm-hq mui-btn mui-btn-yellow">获取验证码</button>
+				<div class="mui-input-row">
+					<input type="text" id='verificationCode' class="mui-input-clear" placeholder="请输入验证码">
+				</div>
+				<div class="mui-input-row">
+					<input type="password" id='password' class="mui-input-password" placeholder="请输入密码">
+				</div>
+				<div class="mui-input-row">
+					<input type="text" id='name' class="mui-input-clear" placeholder="请输入昵称">
+				</div>
+				<button type="button" id='regist' class="mui-btn mui-btn-primary mui-btn-block">注册</button>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+		<script src="../../js/commons.js"></script>
+		<script src="js/register.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			var wait = 60;
+
+			function time(o) {
+				if(wait == 0) {
+					o.removeAttribute("disabled");
+					o.innerHTML = "获取验证码";
+					wait = 60;
+				} else {
+					o.setAttribute("disabled", true);
+					o.innerHTML = "重新发送(" + wait + ")";
+					wait--;
+					setTimeout(function() {
+							time(o)
+						},
+						1000)
+				}
+			}
+			document.getElementById("btn").onclick = function() {
+				var myreg=/^1[3|4|5|7|8][0-9]{9}$/;  		
+				var account = $("#phone").val();
+				if(!myreg.test(account)) {
+					mui.toast("请填入有效手机号码");
+					return;
+				}
+				$.ajax({
+					type: "get",
+					url: basePath + "service/getVerificationCode",
+					data: {
+						phone: account
+					}
+				});
+				time(this);
+			}
+		</script>
+	</body>
+
+</html>

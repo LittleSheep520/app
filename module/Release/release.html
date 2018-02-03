@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>帖子发布</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+		<link rel="stylesheet" href="css/mui.poppicker.css" />
+		<link rel="stylesheet" href="css/addImg.css" />
+		<style>
+			h5 {
+				margin: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded" style="margin: 5px;">
+				<h5>帖子标题：</h5>
+				<div class="mui-input-row">
+					<input type="text" class="mui-input-clear" placeholder="请输入帖子标题">
+				</div>
+				<h5>帖子分类：</h5>
+				<div class="mui-input-row">
+					<input type="text" id="sort" class="mui-input-clear" placeholder="请选择帖子类型" readonly>
+				</div>
+				<h5>商品描述：</h5>
+				<div class="mui-input-row">
+					<textarea id="textarea" rows="3" placeholder="商品描述"></textarea>
+				</div>
+				<h5>图片添加：</h5>
+				<div id='image-list' class="row image-list">
+				</div>
+				<h5>商品价格：</h5>
+				<div class="mui-input-row">
+					<input type="text" class="mui-input-clear" placeholder="请输入商品价格">
+				</div>
+				<h5>商品原价：</h5>
+				<div class="mui-input-row">
+					<input type="text" class="mui-input-clear" placeholder="请输入商品原价">
+				</div>
+				<h5>商品下架时间：</h5>
+				<div class="mui-input-row">
+					<input type="text" id="date" data-options='{"type":"datetime","beginYear":2010,"endYear":2030}' class="mui-input-clear" placeholder="请选择时间">
+				</div>
+				<div class="mui-button-row">
+					<button type="button" class="mui-btn mui-btn-primary mui-btn-block">确认发布</button>	
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js" ></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.picker.min.js" ></script>
+		<script type="text/javascript" src="js/mui.poppicker.js" ></script>
+		<script type="text/javascript" src="js/addImg.js" ></script>
+		<script type="text/javascript" src="js/release.js" ></script>
+	</body>
+
+</html>
