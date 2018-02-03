@@ -1,156 +1,163 @@
 {
-	"index.html": {
-		"resources": [
-			"module/Home-Page/home.html",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"module/Home-Page/home.html",
-			"module/Personal-Center/personal-center.html",
-			"module/Release/release.html"
-		]
-	},
-	"module/Release/release.html": {
-		"refer": [
-			"index.html"
-		],
-		"resources": [
-			"module/Release/js/mui.poppicker.js",
-			"module/Release/js/addImg.js",
-			"js/jquery-2.1.0.min.js",
-			"module/Release/css/mui.picker.min.css",
-			"module/Release/js/mui.picker.min.js",
-			"module/Release/js/release.js",
-			"module/Release/img/iconfont-tianjia.png",
-			"module/Release/css/mui.poppicker.css",
-			"module/Release/css/addImg.css",
-			"js/mui.min.js",
-			"css/mui.min.css"
-		]
-	},
-	"module/Personal-Center/personal-center.html": {
-		"refer": [
-			"module/Public-Components/login.html",
-			"module/Personal-Center/myPost.html",
-			"module/Personal-Center/myCollection.html",
-			"module/Personal-Center/myMessage.html",
-			"module/Personal-Center/personalDetails.html"
-		],
-		"resources": [
-			"module/Personal-Center/img/logo.png",
-			"js/mui.min.js",
-			"js/jquery-2.1.0.min.js",
-			"fonts/mui.ttf",
-			"module/Personal-Center/js/personal-center.js",
-			"css/mui.min.css",
-			"js/commons.js"
-		]
-	},
-	"module/Public-Components/login.html": {
-		"refer": [
-			"module/Public-Components/register.html",
-			"module/Public-Components/forget-password.html",
-			"module/Public-Components/iphon-login.html",
-			"index.html",
-			"module/Personal-Center/personal-center.html"
-		],
-		"resources": [
-			"js/mui.min.js",
-			"js/jquery-2.1.0.min.js",
-			"fonts/mui.ttf",
-			"module/Public-Components/js/login.js",
-			"css/mui.min.css",
-			"js/commons.js",
-			"module/Public-Components/img/login.png"
-		]
-	},
-	"module/Home-Page/home.html": {
-		"refer": [
-			"module/Post/post.html"
-		],
-		"resources": [
-			"module/Home-Page/js/home.js",
-			"module/Home-Page/img/23.jpg",
-			"module/Home-Page/img/banner.jpg",
-			"module/Home-Page/img/integral-banner.jpg",
-			"module/Home-Page/img/24.jpg",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/iconfont.css"
-		]
-	},
-	"module/Post/post.html": {
-		"refer": [
-			"module/Post/post-details.html"
-		],
-		"resources": [
-			"module/Post/img/cbd.jpg",
-			"module/Post/js/post.js",
-			"js/jquery-2.1.0.min.js",
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		]
-	},
-	"module/Public-Components/iphon-login.html": {
-		"resources": [
-			"js/mui.min.js",
-			"js/jquery-2.1.0.min.js",
-			"fonts/mui.ttf",
-			"module/Public-Components/js/login.js",
-			"css/mui.min.css",
-			"js/commons.js",
-			"module/Public-Components/img/iphon.png"
-		],
-		"refer": [
-			"module/Public-Components/login.html"
-		]
-	},
-	"module/Public-Components/register.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/jquery-2.1.0.min.js",
-			"module/Public-Components/js/login.js",
-			"js/commons.js",
-			"module/Public-Components/js/register.js",
-			"module/Public-Components/img/reg.png"
-		],
-		"refer": [
-			"module/Public-Components/login.html"
-		]
-	},
-	"module/Personal-Center/personalDetails.html": {
-		"resources": [
-			"js/mui.min.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css"
-		]
-	},
-	"module/Public-Components/forget-password.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"module/Public-Components/img/pass.png"
-		],
-		"refer": [
-			"module/Public-Components/login.html"
-		]
-	},
-	"module/Personal-Center/changePassword.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"js/mui.min.js",
-			"js/jquery-2.1.0.min.js",
-			"js/commons.js"
-		],
-		"refer": [
-			"module/Public-Components/login.html"
-		]
-	}
+  "index.html": {
+    "resources": [
+      "module/Home-Page/home.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "module/Home-Page/home.html",
+      "module/Personal-Center/personal-center.html",
+      "module/Release/release.html"
+    ]
+  },
+  "module/Release/release.html": {
+    "refer": [
+      "index.html",
+      "module/Public-Components/login.html"
+    ],
+    "resources": [
+      "module/Release/js/mui.poppicker.js",
+      "module/Release/js/addImg.js",
+      "js/jquery-2.1.0.min.js",
+      "module/Release/css/mui.picker.min.css",
+      "module/Release/js/mui.picker.min.js",
+      "module/Release/js/release.js",
+      "module/Release/img/iconfont-tianjia.png",
+      "module/Release/css/mui.poppicker.css",
+      "module/Release/css/addImg.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/commons.js",
+      "fonts/mui.ttf"
+    ]
+  },
+  "module/Personal-Center/personal-center.html": {
+    "refer": [
+      "module/Public-Components/login.html",
+      "module/Personal-Center/myPost.html",
+      "module/Personal-Center/myCollection.html",
+      "module/Personal-Center/myMessage.html",
+      "module/Personal-Center/personalDetails.html",
+      "module/Personal-Center/changePassword.html"
+    ],
+    "resources": [
+      "module/Personal-Center/img/logo.png",
+      "js/mui.min.js",
+      "js/jquery-2.1.0.min.js",
+      "fonts/mui.ttf",
+      "module/Personal-Center/js/personal-center.js",
+      "css/mui.min.css",
+      "js/commons.js"
+    ]
+  },
+  "module/Public-Components/login.html": {
+    "refer": [
+      "module/Public-Components/register.html",
+      "module/Public-Components/forget-password.html",
+      "module/Public-Components/iphon-login.html",
+      "index.html",
+      "module/Personal-Center/personal-center.html"
+    ],
+    "resources": [
+      "js/mui.min.js",
+      "js/jquery-2.1.0.min.js",
+      "fonts/mui.ttf",
+      "module/Public-Components/js/login.js",
+      "css/mui.min.css",
+      "js/commons.js",
+      "module/Public-Components/img/login.png"
+    ]
+  },
+  "module/Home-Page/home.html": {
+    "refer": [
+      "module/Post/post.html"
+    ],
+    "resources": [
+      "module/Home-Page/js/home.js",
+      "module/Home-Page/img/23.jpg",
+      "module/Home-Page/img/banner.jpg",
+      "module/Home-Page/img/integral-banner.jpg",
+      "module/Home-Page/img/24.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/iconfont.css"
+    ]
+  },
+  "module/Post/post.html": {
+    "refer": [
+      "module/Post/post-details.html"
+    ],
+    "resources": [
+      "module/Post/img/cbd.jpg",
+      "module/Post/js/post.js",
+      "js/jquery-2.1.0.min.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "module/Public-Components/iphon-login.html": {
+    "resources": [
+      "js/mui.min.js",
+      "js/jquery-2.1.0.min.js",
+      "fonts/mui.ttf",
+      "module/Public-Components/js/login.js",
+      "css/mui.min.css",
+      "js/commons.js",
+      "module/Public-Components/img/iphon.png"
+    ],
+    "refer": [
+      "module/Public-Components/login.html"
+    ]
+  },
+  "module/Public-Components/register.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/jquery-2.1.0.min.js",
+      "module/Public-Components/js/login.js",
+      "js/commons.js",
+      "module/Public-Components/js/register.js",
+      "module/Public-Components/img/reg.png"
+    ],
+    "refer": [
+      "module/Public-Components/login.html"
+    ]
+  },
+  "module/Personal-Center/personalDetails.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "module/Public-Components/forget-password.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "module/Public-Components/img/pass.png",
+      "js/mui.min.js",
+      "js/jquery-2.1.0.min.js",
+      "js/commons.js"
+    ],
+    "refer": [
+      "module/Public-Components/login.html"
+    ]
+  },
+  "module/Personal-Center/changePassword.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "js/jquery-2.1.0.min.js",
+      "js/commons.js"
+    ],
+    "refer": [
+      "module/Public-Components/login.html"
+    ]
+  }
 }
