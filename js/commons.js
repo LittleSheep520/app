@@ -11,7 +11,7 @@ var ignorePath = new Array(
 	"module/Public-Components/iphon-login.html",
 	"module/Public-Components/register.html"
 );
-var basePath="https://iyatou.vip/";
+var basePath = "https://iyatou.vip/";
 var sessionKey = "sk";
 
 Array.prototype.contains = function(obj) {
@@ -23,39 +23,45 @@ Array.prototype.contains = function(obj) {
 	}
 	return false;
 }
-String.prototype.format = String.prototype.f = function () {  
-    var s = this,  
-        i = arguments.length;  
-  
-    while (i--) {  
-        s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);  
-    }  
-    return s;  
+String.prototype.format = String.prototype.f = function() {
+	var s = this,
+		i = arguments.length;
+
+	while(i--) {
+		s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
+	}
+	return s;
 };
 //Todo 测试
-var StringUtil={
-	format:function(){
-			var s = arguments[0],
+var StringUtil = {
+	format: function() {
+		var s = arguments[0],
 			i = arguments.length;
-		    while (i-->0) {  
-        		s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);  
-    		}  
-    		return s; 
+		while(i-- > 0) {
+			s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
+		}
+		return s;
 	}
 }
 mui.plusReady(function() {
 	if(ignorePath.contains(plus.webview.currentWebview().id)) {
 		console.log("免登陆页面：" + plus.webview.currentWebview().id);
 	} else {
+		//调试
+		//console.log("调试所有页面免登陆" + plus.webview.currentWebview().id);
+		//return;
 		if(window.localStorage.getItem(sessionKey) == null) {
-			console.log(plus.webview.currentWebview().id+"未找到登陆用户信息，去到登陆页面" + window.localStorage.getItem(sessionKey));
+			if("forget-password.html" == plus.webview.currentWebview().id) {
+				return;
+			}
+			console.log(plus.webview.currentWebview().id + "未找到登陆用户信息，去到登陆页面" + window.localStorage.getItem(sessionKey));
 			mui.openWindow({
 				url: "/module/Public-Components/login.html",
-				id:"module/Public-Components/login.html",
-				createNew:true
+				id: "module/Public-Components/login.html",
+				createNew: true
 			})
 		} else {
-			console.log("自动登陆：" + JSON.parse(window.localStorage.getItem(sessionKey)).name+"token："+window.localStorage.getItem(sessionKey));
+			console.log("自动登陆：" + JSON.parse(window.localStorage.getItem(sessionKey)).name + "token：" + window.localStorage.getItem(sessionKey));
 		}
 
 	}
@@ -63,19 +69,31 @@ mui.plusReady(function() {
 
 //获取当前登陆的用户的公共函数
 function getSessionUser() {
-	return JSON.parse(localStorage.getItem(sessionKey));
+	var user =JSON.parse(localStorage.getItem(sessionKey));
+	//调试
+	/*var user = {
+		"id": "61df7b55-ef78-47c6-8059-feb7fea29f75",
+		"token": "ffO7G7nZGmEoSvojOHJWBA==",
+		"name": "xiaofeiyang",
+		"password": "ZBISHLstwsueRgz+5wRr4g==",
+		"email": "xiaofeiyang@love.com",
+		"phone": "18524479929",
+		"sex": null,
+		"joinDate": 1515831816000
+	}*/
+	return user;
 }
 
 $.ajaxSetup({
 	contentType: "application/json; charset=utf-8",
 	//dataType:"JSON",
 	headers: {
-		token: null == localStorage.getItem(sessionKey) ? "null" : JSON.parse(localStorage.getItem(sessionKey)).token
+		token: null == localStorage.getItem(sessionKey) ? "null" : getSessionUser().token
 	},
-    /*beforeSend: function (jqXHR, settings) {
-        var verificationToken = 'some encrypted string';
-        jqXHR.setRequestHeader('Content-Type', 'application/json;charset=utf-8');  
-    }*/
+	/*beforeSend: function (jqXHR, settings) {
+	    var verificationToken = 'some encrypted string';
+	    jqXHR.setRequestHeader('Content-Type', 'application/json;charset=utf-8');  
+	}*/
 });
 
 //禁止返回到上层页面的公共函数，在需要的禁用返回的页面调用mui.back = disableBack;即可
@@ -98,10 +116,17 @@ function disableBack() {
 	}, false);
 }
 
-function ajaxResultCheck(result){
-	if(result.result!="success"){
-		mui.alert(result.resultCode.resultCode+" "+result.data);
+function ajaxResultCheck(result) {
+	if(result.result != "success") {
+		mui.alert(result.resultCode.resultCode + " " + result.data);
 		return false;
 	}
 	return true;
+}
+
+function logWebviewIds() {
+	var list = plus.webview.all();
+	for(key in list) {
+		console.log(JSON.stringify(list[key]));
+	}
 }
