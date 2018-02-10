@@ -6,6 +6,19 @@
 		<title>个人中心</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.mui-btn {
+				padding: 8px;
+			}
+			
+			.icon {
+				width: 2em;
+				height: 2em;
+				vertical-align: -0.5em;
+				fill: currentColor;
+				overflow: hidden;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -15,41 +28,55 @@
 				<img src="img/logo.png" style="width:20%;height:auto;margin-left:10px;margin-right:20px;" />
 				<div class="mui-media-body" style="padding:8px;">
 					<h3 id="account">您还未登录</h3>
-					<p>查看或编辑个人资料</p>
+					<p id="checkInfo">查看或编辑个人资料</p>
 				</div>
 			</div>
-			<!--内容区-->
-			<div class="mui-card-content" style="padding:10px">
+		</div>
+		<!--内容区-->
+		<div class="mui-content">
+			<div class="mui-content-padded" style="margin:10px">
 				<ul class="mui-table-view">
 					<li class="mui-table-view-cell">
 						<a class="mui-navigate-right" id="myMessage">
-						<span class="mui-badge mui-badge-danger">15</span>我的消息</a>
-						
+							<span class="mui-badge mui-badge-danger">15</span>
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-xiaoxi"></use>
+							</svg>我的消息</a>
+
 					</li>
 					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right" id="myPost">我的帖子</a>
+						<a class="mui-navigate-right" id="myPost">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-tushu"></use>
+							</svg>我的帖子</a>
 					</li>
 					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right" id="myCollection">我的收藏</a>
+						<a class="mui-navigate-right" id="myCollection">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-shoucang"></use>
+							</svg>我的收藏</a>
 					</li>
 					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right" id="personalDetails">个人详情</a>
-					</li>
-					<li class="mui-table-view-cell loginedHide" id="login">
-						<a class="mui-navigate-right">立即登录</a>
+						<a class="mui-navigate-right" id="personalDetails">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon--gerenxinxi"></use>
+							</svg>个人详情</a>
 					</li>
 					<li class="mui-table-view-cell notLoginHide">
-						<a class="mui-navigate-right" id="changePassword">修改密码</a>
-					</li>
-					<li class="mui-table-view-cell notLoginHide">
-						<a class="mui-navigate-right" id="logout">退出当前账户</a>
+						<a class="mui-navigate-right" id="changePassword">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-mimaxiugai"></use>
+							</svg>修改密码</a>
 					</li>
 				</ul>
+				<button type="button" style="margin-top: 10px;" id='login' class="mui-btn mui-btn-primary mui-btn-block loginedHide">立即登录</button>
+				<button type="button" style="margin-top: 10px;" id='logout' class="mui-btn mui-btn-danger mui-btn-block notLoginHide">退出当前账户</button>
 			</div>
 		</div>
+
 		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js"></script>
 		<script src="../../js/mui.min.js"></script>
-		<script src="../../js/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="../../js/iconfont.js"></script>
 		<script src="../../js/commons.js"></script>
 		<script src="js/personal-center.js"></script>
 		<script type="text/javascript">
@@ -96,6 +123,12 @@
 				mui.openWindow({
 					url: 'changePassword.html',
 					id: 'changePassword.html'
+				});
+			});
+			document.getElementById('checkInfo').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'personalDetails.html',
+					id: 'personalDetails.html'
 				});
 			});
 		</script>
