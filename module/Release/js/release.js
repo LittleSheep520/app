@@ -122,9 +122,18 @@ function sendPostBtnBind() {
 			data: JSON.stringify(post),
 			success: function(result) {
 				if(!ajaxResultCheck(result)) return;
-				mui.toast("发布成功//TODO 跳转到帖子列表");
+							var list=plus.webview.all();
+			var log="";
+			for(key in list){
+				console.log(JSON.stringify(list[key].id))
+				log+=JSON.stringify(list[key].id);
 			}
-		})
+			mui.alert(log); 
+				mui.toast("发布成功//TODO 跳转到帖子列表");
+				//1.调用自定事件，切换到对应tab
+				//mui.fire(null,'gohome',{id:"HBuilder"})
+			}
+		});
 	});
 }
 

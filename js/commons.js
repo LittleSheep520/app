@@ -55,16 +55,15 @@ mui.plusReady(function() {
 				return;
 			}
 			console.log(plus.webview.currentWebview().id + "未找到登陆用户信息，去到登陆页面" + window.localStorage.getItem(sessionKey));
-			if(plus.webview.getWebviewById("module/Public-Components/login.html")==null){
+			if(plus.webview.getWebviewById("module/Public-Components/login.html") == null) {
 				mui.openWindow({
 					url: "/module/Public-Components/login.html",
 					id: "module/Public-Components/login.html",
 					createNew: true
 				})
-			}else{
+			} else {
 				plus.webview.getWebviewById("module/Public-Components/login.html").show();
 			}
-			
 
 		} else {
 			console.log("自动登陆：" + JSON.parse(window.localStorage.getItem(sessionKey)).name + "token：" + window.localStorage.getItem(sessionKey));
@@ -75,7 +74,7 @@ mui.plusReady(function() {
 
 //获取当前登陆的用户的公共函数
 function getSessionUser() {
-	var user =JSON.parse(localStorage.getItem(sessionKey));
+	var user = JSON.parse(localStorage.getItem(sessionKey));
 	//调试
 	/*var user = {
 		"id": "61df7b55-ef78-47c6-8059-feb7fea29f75",
@@ -124,15 +123,21 @@ function disableBack() {
 
 function ajaxResultCheck(result) {
 	if(result.result != "success") {
-		mui.alert(result.resultCode.resultCode + " " + result.data);
+		mui.toast(result.resultCode.resultCode + " " + result.data);
 		return false;
 	}
 	return true;
 }
-
-function logWebviewIds() {
-	var list = plus.webview.all();
+//mui getViewById找不到缓存的webview，所以增加该方法
+function findWebviewById(id) {
+	var log="";
+	var list=plus.webview.all();
 	for(key in list) {
-		console.log(JSON.stringify(list[key]));
+		console.log(JSON.stringify(list[key].id));
+		if(list[key]&&list[key].id&&list[key].id.indexOf(id)>-1) {
+			console.log(list[key].id);
+			return list[key];
+		}
 	}
+	console.log("没找到所需页面"+id);
 }
