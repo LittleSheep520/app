@@ -50,11 +50,11 @@ mui.plusReady(function() {
 		//调试
 		//console.log("调试所有页面免登陆" + plus.webview.currentWebview().id);
 		//return;
-		if(window.localStorage.getItem(sessionKey) == null) {
+		if(plus.storage.getItem(sessionKey) == null) {
 			if("forget-password.html" == plus.webview.currentWebview().id) {
 				return;
 			}
-			console.log(plus.webview.currentWebview().id + "未找到登陆用户信息，去到登陆页面" + window.localStorage.getItem(sessionKey));
+			console.log(plus.webview.currentWebview().id + "未找到登陆用户信息，去到登陆页面" + plus.storage.getItem(sessionKey));
 			if(plus.webview.getWebviewById("module/Public-Components/login.html") == null) {
 				mui.openWindow({
 					url: "/module/Public-Components/login.html",
@@ -66,15 +66,41 @@ mui.plusReady(function() {
 			}
 
 		} else {
-			console.log("自动登陆：" + JSON.parse(window.localStorage.getItem(sessionKey)).name + "token：" + window.localStorage.getItem(sessionKey));
+			console.log("自动登陆：" + JSON.parse(plus.storage.getItem(sessionKey)).name + "token：" + plus.storage.getItem(sessionKey));
 		}
 
 	}
+	var self = plus.webview.currentWebview();
+	self.addEventListener('show', function() {
+		$.ajaxSetup({
+			contentType: "application/json; charset=utf-8",
+			//dataType:"JSON",
+			headers: {
+				token: null == plus.storage.getItem(sessionKey) ? "null" : getSessionUser().token
+			},
+			/*beforeSend: function (jqXHR, settings) {
+			    var verificationToken = 'some encrypted string';
+			    jqXHR.setRequestHeader('Content-Type', 'application/json;charset=utf-8');  
+			}*/
+		});
+	});
+	$.ajaxSetup({
+		contentType: "application/json; charset=utf-8",
+		//dataType:"JSON",
+		headers: {
+			token: null == plus.storage.getItem(sessionKey) ? "null" : getSessionUser().token
+		},
+		/*beforeSend: function (jqXHR, settings) {
+		    var verificationToken = 'some encrypted string';
+		    jqXHR.setRequestHeader('Content-Type', 'application/json;charset=utf-8');  
+		}*/
+	});
 });
 
 //获取当前登陆的用户的公共函数
 function getSessionUser() {
-	var user = JSON.parse(localStorage.getItem(sessionKey));
+	var user = JSON.parse(plus.storage.getItem(sessionKey));
+	//var user = JSON.parse(localStorage.getItem(sessionKey));
 	//调试
 	/*var user = {
 		"id": "61df7b55-ef78-47c6-8059-feb7fea29f75",
@@ -88,18 +114,6 @@ function getSessionUser() {
 	}*/
 	return user;
 }
-
-$.ajaxSetup({
-	contentType: "application/json; charset=utf-8",
-	//dataType:"JSON",
-	headers: {
-		token: null == localStorage.getItem(sessionKey) ? "null" : getSessionUser().token
-	},
-	/*beforeSend: function (jqXHR, settings) {
-	    var verificationToken = 'some encrypted string';
-	    jqXHR.setRequestHeader('Content-Type', 'application/json;charset=utf-8');  
-	}*/
-});
 
 //禁止返回到上层页面的公共函数，在需要的禁用返回的页面调用mui.back = disableBack;即可
 function disableBack() {
@@ -130,14 +144,32 @@ function ajaxResultCheck(result) {
 }
 //mui getViewById找不到缓存的webview，所以增加该方法
 function findWebviewById(id) {
-	var log="";
-	var list=plus.webview.all();
+	var log = "";
+	var list = plus.webview.all();
 	for(key in list) {
 		console.log(JSON.stringify(list[key].id));
-		if(list[key]&&list[key].id&&list[key].id.indexOf(id)>-1) {
+		if(list[key] && list[key].id && list[key].id.indexOf(id) > -1) {
 			console.log(list[key].id);
 			return list[key];
 		}
 	}
-	console.log("没找到所需页面"+id);
+	console.log("没找到所需页面" + id);
 }
+var postType = {
+	TC: {
+		type: 'TC',
+		text: '卖商品'
+	},
+	TIB: {
+		type: "TIB",
+		text: '找代购'
+	},
+	TJ: {
+		type: "TJ",
+		text: '找兼职'
+	},
+	TOD: {
+		type: "TOD",
+		text: '卖闲置'
+	}
+};

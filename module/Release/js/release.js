@@ -23,7 +23,7 @@ function sendPostBtnBind() {
 				"endDate": new Date(Date.parse($("." + currentType + " .endDate").val())),
 				//"id": "string",
 				"images": [
-					"string"
+					
 				],
 				//"insertDate": "2018-02-03T06:38:39.702Z",
 				"kind": currentType,
@@ -49,7 +49,7 @@ function sendPostBtnBind() {
 				"endDate": new Date(Date.parse($("." + currentType + " .endDate").val())),
 				//"id": "string",
 				"images": [
-					"string"
+					
 				],
 				//"insertDate": "2018-02-03T06:38:39.717Z",
 				"kind": currentType,
@@ -75,7 +75,7 @@ function sendPostBtnBind() {
 				"endDate": new Date(Date.parse($("." + currentType + " .endDate").val())),
 				//"id": "string",
 				"images": [
-					"string"
+					
 				],
 				//"insertDate": "2018-02-03T06:38:39.733Z",
 				"kind": currentType,
@@ -98,7 +98,7 @@ function sendPostBtnBind() {
 				"endDate": new Date(Date.parse($("." + currentType + " .endDate").val())),
 				//"id": "string",
 				"images": [
-					"string"
+					
 				],
 				//"insertDate": "2018-02-03T06:38:39.702Z",
 				"kind": currentType,
@@ -116,21 +116,46 @@ function sendPostBtnBind() {
 				//"verifyFlag": "string"
 			}
 		}
+		//处理图片
+		
+			var imgElements=$("#image-list .image-item");
+			for(var i=0;i<imgElements.length;i++){
+				console.log(imgElements[i].dataUrl);
+				post.images.push(imgElements[i].dataUrl);
+			}
+		
+		console.log(JSON.stringify(post));
+		if(!post.title||post.title.length<10){
+			mui.toast("亲，请填写长度10-40个字符的标题");
+			return;
+		}
+		if(post.title.length>40){
+			mui.toast("亲，标题太长啦，更多内容请填写在详细描述中");
+			return;
+		}
+		if(!post.description||post.description.length<10){
+			mui.toast("亲，请给点详细描述吧，最少10个字符");
+			return;
+		}
+		if(!post.images||post.images.length<1){
+			mui.toast("亲，无图无真相哦，请至少给一个图片吧");
+			return;
+		}
 		$.ajax({
 			type: 'post',
 			url: basePath + "service/cards/add/" + currentType,
 			data: JSON.stringify(post),
 			success: function(result) {
 				if(!ajaxResultCheck(result)) return;
-							var list=plus.webview.all();
-			var log="";
-			for(key in list){
-				console.log(JSON.stringify(list[key].id))
-				log+=JSON.stringify(list[key].id);
-			}
-			mui.alert(log); 
-				mui.toast("发布成功//TODO 跳转到帖子列表");
-				//1.调用自定事件，切换到对应tab
+				var list = plus.webview.all();
+				/*var log = "";
+				for(key in list) {
+					console.log(JSON.stringify(list[key].id))
+					log += JSON.stringify(list[key].id);
+				}*/
+				mui.alert(log);
+				mui.alert("发布成功//TODO 跳转到帖子列表");
+				//1.调用自定事件，点击tab卡，切换到对应tab
 				//mui.fire(null,'gohome',{id:"HBuilder"})
 			}
 		});

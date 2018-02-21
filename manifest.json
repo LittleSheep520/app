@@ -361,6 +361,13 @@
 					"module/Public-Components/login.html"
 				],
 				"priority": 0
+			},
+			"module/Post/post-details.html": {
+				"resources": [],
+				"refer": [
+					"module/Public-Components/login.html"
+				],
+				"priority": 0
 			}
 		},
 		"idle": {

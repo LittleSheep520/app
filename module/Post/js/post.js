@@ -1,10 +1,10 @@
 mui.init({
 	pullRefresh: {
 		container: '#pullrefresh',
-		/*down: {
+		down: {
 			style: 'circle',
 			callback: pulldownRefresh
-		},*/
+		},
 		up: {
 			auto: true,
 			contentrefresh: '正在加载...',
@@ -75,7 +75,7 @@ function vender() {
 	for(var i = 0; i < postList.length; i++) {
 		var li = document.createElement('li');
 		li.className = 'mui-table-view-cell mui-media';
-		li.innerHTML = '<li id=' + postList[i].id + '>' + '<p>' + postList[i].id + '</p><a class="mui-navigate-right"><img class="mui-media-object mui-pull-left" src="img/cbd.jpg"><div class="mui-media-body">' +
+		li.innerHTML = '<li id=' + postList[i].id + '>' + '<p hidden="hidden">' + postList[i].id + '</p><a class="mui-navigate-right"><img class="mui-media-object mui-pull-left" src='+postList[i].images[0]+'><div class="mui-media-body">' +
 		postList[i].title + '<p class="mui-ellipsis"><a style="font-size:100%;opacity:0.3;">[' + postType[postList[i].type].text + ']</a>' +postList[i].description + '</p></div></a></li>';
 		table.appendChild(li);
 	}
@@ -86,7 +86,7 @@ function pullupRefresh() {
 	console.log("pullupRefresh");
 	getPostListAndAddToTable(vender);
 }
-//下拉刷新添加数据
+//下拉刷新添加数据（插入新数据）
 function _addData() {
 	var table = document.body.querySelector('.mui-table-view');
 	var cells = document.body.querySelectorAll('.mui-table-view-cell');
@@ -98,14 +98,22 @@ function _addData() {
 		table.insertBefore(li, table.firstChild);
 	}
 }
+//下拉从新初始化数据（刷新所有）
+function reloadData() {
+	page=0;
+	var table = document.body.querySelector('.mui-table-view');
+	$(table).empty();
+	pullupRefresh();
+}
 /**
  * 下拉刷新具体业务实现
  */
-function _pulldownRefresh() {
+function pulldownRefresh() {
 	setTimeout(function() {
-		addData();
+		//addData();
+		reloadData();
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
-		mui.toast("暂未启用下拉刷新");
+		//mui.toast("列表刷新");
 	}, 1500);
 }
 
@@ -117,7 +125,6 @@ mui(".mui-table-view").on('tap', '.mui-table-view-cell', function() {
 		//detailPage = plus.webview.getWebviewById('module/Post/post-details.html');
 		detailPage = findWebviewById('module/Post/post-details.html');
 	}
-	console.log(detailPage);
 	//触发详情页面的getPostById事件
 	mui.fire(detailPage, 'getPostById', {
 		id: id

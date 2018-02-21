@@ -43,26 +43,36 @@ function login() {
 		}),
 		success: function(result) {
 			if(!ajaxResultCheck(result)) return;
-			window.localStorage.setItem(sessionKey, JSON.stringify(result.data));
+			plus.storage.setItem(sessionKey, JSON.stringify(result.data));
 			console.log(result.data);
-			console.log("登陆成功，去到首页，" + JSON.parse(window.localStorage.getItem(sessionKey)).name);
+			var storageSessionUser=JSON.parse(plus.storage.getItem(sessionKey));
+			console.log("登陆成功，去到首页，" + storageSessionUser.name);
 			
-			/*var list=plus.webview.all();
+			var list=plus.webview.all();
 			var log="";
 			for(key in list){
 				console.log(JSON.stringify(list[key].id))
 				log+=JSON.stringify(list[key].id);
 			}
-			mui.alert(log);*/
+			//mui.alert(log);
+		
 			plus.webview.currentWebview().close(); 
 			/*if(plus.webview.getWebviewById("HBuilder")==null){
 				mui.alert("fuckMUI NULL");
 			}else{
 				plus.webview.getWebviewById("HBuilder").show();
 			}*/
-			mui.toast("欢迎回来, "+JSON.parse(window.localStorage.getItem(sessionKey)).name);
-			plus.webview.getWebviewById("HBuilder").show();
-			plus.webview.getWebviewById("module/Personal-Center/personal-center.html").reload(true);
+			//window.localStorage.getItem(sessionKey)不定时获取不到localStorage，无法执行下面语句，且下次无法自动登陆
+			//应该是写localStorage.setItem存在bug 证实是因为用户信息加载时机问题
+			//mui.toast("欢迎回来, "+JSON.parse(plus.storage.getItem(sessionKey)).name);
+			
+			console.log("登陆成功，欢迎回来，" + storageSessionUser.name);
+			//plus.webview.getWebviewById("HBuilder").show();
+			//plus.webview.getWebviewById("module/Personal-Center/personal-center.html").reload(true);
+			/*var userCenterPage=findWebviewById("module/Personal-Center/personal-center.html");
+			mui.fire(userCenterPage, 'getUserById', {
+				id: storageSessionUser.id
+			});*/
 		}
 	})
 	/*var sessionUserFake = {
