@@ -66,3 +66,5 @@ function getPost(id) {
 /*mui.back=function(){
 	mui.plus.currentWebview.close()
 }*/
+
+//Test git
