@@ -67,7 +67,7 @@ function login() {
 			//mui.toast("欢迎回来, "+JSON.parse(plus.storage.getItem(sessionKey)).name);
 			
 			console.log("登陆成功，欢迎回来，" + storageSessionUser.name);
-			//plus.webview.getWebviewById("HBuilder").show();
+			plus.webview.getWebviewById("HBuilder").show();
 			//plus.webview.getWebviewById("module/Personal-Center/personal-center.html").reload(true);
 			/*var userCenterPage=findWebviewById("module/Personal-Center/personal-center.html");
 			mui.fire(userCenterPage, 'getUserById', {
