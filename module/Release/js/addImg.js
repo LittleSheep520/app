@@ -64,6 +64,7 @@
 					var dataUrl = 'data:image/png;base64,' + base64;
 					//
 					placeholder.style.backgroundImage = 'url(' + dataUrl + ')';
+					placeholder.dataUrl=dataUrl;
 				}
 				reader.readAsDataURL(file);
 				placeholder.classList.remove('space');
