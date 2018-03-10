@@ -7,9 +7,11 @@ var ignorePath = new Array(
 	"login.html",
 	"iphon-login.html",
 	"register.html",
+	"forget-password.html",
 	"module/Public-Components/login.html",
 	"module/Public-Components/iphon-login.html",
-	"module/Public-Components/register.html"
+	"module/Public-Components/register.html",
+	"module/Public-Components/forget-password.html"
 );
 var basePath = "https://iyatou.vip/";
 var sessionKey = "sk";

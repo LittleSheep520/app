@@ -15,7 +15,8 @@
 	"module/Release/release.html": {
 		"refer": [
 			"index.html",
-			"module/Public-Components/login.html"
+			"module/Public-Components/login.html",
+			"module/Public-Components/user_operate.html"
 		],
 		"resources": [
 			"module/Release/js/mui.poppicker.js",
@@ -40,7 +41,8 @@
 			"module/Personal-Center/myCollection.html",
 			"module/Personal-Center/myMessage.html",
 			"module/Personal-Center/personalDetails.html",
-			"module/Personal-Center/changePassword.html"
+			"module/Personal-Center/changePassword.html",
+			"module/Public-Components/user_operate.html"
 		],
 		"resources": [
 			"module/Personal-Center/img/logo.png",
@@ -88,7 +90,8 @@
 	},
 	"module/Post/post.html": {
 		"refer": [
-			"module/Post/post-details.html"
+			"module/Post/post-details.html",
+			"module/Public-Components/user_operate.html"
 		],
 		"resources": [
 			"module/Post/img/cbd.jpg",
@@ -163,6 +166,12 @@
 	"module/Post/post-details.html": {
 		"refer": [
 			"module/Public-Components/login.html"
+		]
+	},
+	"module/Public-Components/user_operate.html": {
+		"refer": [
+			"module/Public-Components/login.html",
+			"module/Public-Components/register.html"
 		]
 	}
 }

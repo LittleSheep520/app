@@ -5,23 +5,32 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
 		<style>
-			.mui-btn {
-				padding: 8px;
+			.mui-btn-block {
+				padding: 6.5px 0;
+			}
+			.mui-action-back{
+				color: #FFFFFF;
+			}
+			.mui-btn-danger {
+				background-color: #ED3341;
 			}
 			
-			.logo img {
-				width: 120px;
-				margin: 20px auto;
-				display: block;
+			header.mui-bar {
+				background-color: rgba( 220, 20, 60, 1);
 			}
 			
-			.yzm-hq {
-				color: #fff;
-				padding: 0.6rem;
-				width: 45%;
-				float: right;
+			header.mui-bar .mui-title {
+				color: #FFFFFF;
+			}
+			
+			#verificationCode {
+				width: 60%;
+			}
+			
+			.yzm {
+				padding: 9.5px 15px;
 			}
 		</style>
 	</head>
@@ -29,20 +38,18 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">手机一键登录</h1>
+			<h1 id="title" class="mui-title">手机登录</h1>
 		</header>
 		<div class="mui-content">
-			<div class="mui-content-padded" style="margin: 10px;">
-				<div class="logo"><img src="img/iphon.png" /></div>
-
+			<div class="mui-content-padded"> 
 				<div class="mui-input-row">
-					<input type="text" id='account' class="mui-input-clear" placeholder="请输入手机号码">
+					<input type="text" id="account" class="mui-input-clear" placeholder="请输入手机号">
 				</div>
-				<button id="btn" class="yzm-hq mui-btn mui-btn-warning">获取验证码</button>
 				<div class="mui-input-row">
-					<input type="text" id='verificationCode' class="mui-input-clear" placeholder="请输入验证码">
+					<input type="text" id="verificationCode" placeholder="请输入验证码">
+					<button type="button" id="btn" class="mui-btn-danger yzm">获取验证码</button>
 				</div>
-				<button type="button" id="login" class="mui-btn mui-btn-primary mui-btn-block">登录</button>
+				<button type="button" id="login" class="mui-btn mui-btn-danger mui-btn-block">立即登录</button>
 			</div>
 		</div>
 		<script src="../../js/mui.min.js"></script>
@@ -50,7 +57,7 @@
 		<script src="../../js/commons.js"></script>
 		<script src="js/login.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init();
 			var wait = 60;
 
 			function time(o) {
@@ -69,7 +76,7 @@
 				}
 			}
 			document.getElementById("btn").onclick = function() {
-				var myreg=/^1[3|4|5|7|8][0-9]{9}$/;
+				var myreg = /^1[3|4|5|7|8][0-9]{9}$/;
 				var account = $("#account").val();
 				if(!myreg.test(account)) {
 					mui.toast("请填入有效手机号码");

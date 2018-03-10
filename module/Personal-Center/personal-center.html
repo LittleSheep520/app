@@ -6,129 +6,80 @@
 		<title>个人中心</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.min.css" rel="stylesheet" />
-		<style>
-			.mui-btn {
-				padding: 8px;
-			}
-			
-			.icon {
-				width: 2em;
-				height: 2em;
-				vertical-align: -0.5em;
-				fill: currentColor;
-				overflow: hidden;
-			}
-		</style>
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 
 	<body>
-		<div class="mui-card">
-			<!--页眉，放置标题-->
-			<div class="mui-card-header mui-card-media" id="idcard">
-				<img src="img/logo.png" style="width:20%;height:auto;margin-left:10px;margin-right:20px;" />
-				<div class="mui-media-body" style="padding:8px;">
-					<h3 id="account">您还未登录</h3>
-					<p id="checkInfo">查看或编辑个人资料</p>
+		<div class="mui-content" id="my">
+			<div class="my_info">
+				<img src="img/bj.png" />
+				<div class="my_mian">
+					<p class="my_pic">
+						<img src="img/my_03.png" />
+					</p>
+					<span id="account" class="my_number">你还未登录</span>
+					<span class="my_text">这人很懒！</span>
+
 				</div>
 			</div>
-		</div>
-		<!--内容区-->
-		<div class="mui-content">
-			<div class="mui-content-padded" style="margin:10px">
-				<ul class="mui-table-view">
-					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right" id="myMessage">
-							<span class="mui-badge mui-badge-danger">15</span>
-							<svg class="icon" aria-hidden="true">
-								<use xlink:href="#icon-xiaoxi"></use>
-							</svg>我的消息</a>
-
-					</li>
-					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right" id="myPost">
-							<svg class="icon" aria-hidden="true">
-								<use xlink:href="#icon-tushu"></use>
-							</svg>我的帖子</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right" id="myCollection">
-							<svg class="icon" aria-hidden="true">
-								<use xlink:href="#icon-shoucang"></use>
-							</svg>我的收藏</a>
-					</li>
-					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right" id="personalDetails">
-							<svg class="icon" aria-hidden="true">
-								<use xlink:href="#icon--gerenxinxi"></use>
-							</svg>个人详情</a>
-					</li>
-					<li class="mui-table-view-cell notLoginHide">
-						<a class="mui-navigate-right" id="changePassword">
-							<svg class="icon" aria-hidden="true">
-								<use xlink:href="#icon-mimaxiugai"></use>
-							</svg>修改密码</a>
-					</li>
+			<div class="my_content clearfix">
+				<ul>
+					<a id="myMessage">
+						<li class="my_border">
+							<span class="my_pic"><img src="img/main_04.png" /></span>
+							<span class="my_order">我的消息</span>
+							<span class="my_right"><img src="img/right.png"/></span>
+						</li>
+					</a>
+					<a id="myPost">
+						<li class="my_border topline">
+							<span class="my_pic"><img src="img/main_11.png" /></span>
+							<span class="my_order">我的帖子</span>
+							<span class="my_right"><img src="img/right.png"/></span>
+						</li>
+					</a>
+					<a id="myCollection">
+						<li class="my_border topline">
+							<span class="my_pic"><img src="img/main_13.png" /></span>
+							<span class="my_order">我的收藏</span>
+							<span class="my_right"><img src="img/right.png"/></span>
+						</li>
+					</a>
+					<a id="personalData">
+						<li class="topline">
+							<span class="my_pic"><img src="img/main_15.png" /></span>
+							<span class="my_order">个人详情</span>
+							<span class="my_right"><img src="img/right.png"/></span>
+						</li>
+					</a>
+					<a id="changePassword">
+						<li class="topline">
+							<span class="my_pic"><img src="img/main_11.png" /></span>
+							<span class="my_order">修改密码</span>
+							<span class="my_right"><img src="img/right.png"/></span>
+						</li>
+					</a>
 				</ul>
-				<button type="button" style="margin-top: 10px;" id='login' class="mui-btn mui-btn-primary mui-btn-block loginedHide">立即登录</button>
-				<button type="button" style="margin-top: 10px;" id='logout' class="mui-btn mui-btn-danger mui-btn-block notLoginHide">退出当前账户</button>
 			</div>
+			<div id="close">
+				<a id='login' class="close_con loginedHide">立即登录</a>
+				<a id='logout' class="close_con notLoginHide">退出登录</a>
+			</div>
+			&nbsp;
 		</div>
 
 		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js"></script>
 		<script src="../../js/mui.min.js"></script>
-		<script type="text/javascript" src="../../js/iconfont.js"></script>
+		<script type="text/javascript" src="js/rem.js" ></script>
 		<script src="../../js/commons.js"></script>
+		<script type="text/javascript" src="js/page-change.js" ></script>
 		<script src="js/personal-center.js"></script>
 		<script type="text/javascript">
-			mui.init();
-			mui.plusReady(function() {
-				var page = mui.preload({
-					url: '../Public-Components/login.html',
-					id: 'login.html', //默认使用当前页面的url作为id
-					styles: {}, //窗口参数
-					extras: {} //自定义扩展参数
-				});
-			})
-			document.getElementById('login').addEventListener('tap', function() {
+			mui.init()
+			document.getElementById('login').addEventListener('tap',function(){
 				mui.openWindow({
-					url: '../Public-Components/login.html',
-					id: 'login.html'
-				});
-			});
-			document.getElementById('myMessage').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'myMessage.html',
-					id: 'myMessage.html'
-				});
-			});
-			document.getElementById('myPost').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'myPost.html',
-					id: 'myPost.html'
-				});
-			});
-			document.getElementById('myCollection').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'myCollection.html',
-					id: 'myCollection.html'
-				});
-			});
-			document.getElementById('personalDetails').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'personalDetails.html',
-					id: 'personalDetails.html'
-				});
-			});
-			document.getElementById('changePassword').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'changePassword.html',
-					id: 'changePassword.html'
-				});
-			});
-			document.getElementById('checkInfo').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'personalDetails.html',
-					id: 'personalDetails.html'
+					url:'../Public-Components/user_operate.html',
+					id:'user_operate.html'
 				});
 			});
 		</script>

@@ -23,7 +23,7 @@ function sendPostBtnBind() {
 				"endDate": new Date(Date.parse($("." + currentType + " .endDate").val())),
 				//"id": "string",
 				"images": [
-					
+
 				],
 				//"insertDate": "2018-02-03T06:38:39.702Z",
 				"kind": currentType,
@@ -49,7 +49,7 @@ function sendPostBtnBind() {
 				"endDate": new Date(Date.parse($("." + currentType + " .endDate").val())),
 				//"id": "string",
 				"images": [
-					
+
 				],
 				//"insertDate": "2018-02-03T06:38:39.717Z",
 				"kind": currentType,
@@ -75,7 +75,7 @@ function sendPostBtnBind() {
 				"endDate": new Date(Date.parse($("." + currentType + " .endDate").val())),
 				//"id": "string",
 				"images": [
-					
+
 				],
 				//"insertDate": "2018-02-03T06:38:39.733Z",
 				"kind": currentType,
@@ -98,7 +98,7 @@ function sendPostBtnBind() {
 				"endDate": new Date(Date.parse($("." + currentType + " .endDate").val())),
 				//"id": "string",
 				"images": [
-					
+
 				],
 				//"insertDate": "2018-02-03T06:38:39.702Z",
 				"kind": currentType,
@@ -117,28 +117,33 @@ function sendPostBtnBind() {
 			}
 		}
 		//处理图片
-		
-			var imgElements=$("#image-list .image-item");
-			for(var i=0;i<imgElements.length;i++){
-				console.log(imgElements[i].dataUrl);
-				post.images.push(imgElements[i].dataUrl);
-			}
-		
+
+		var imgElements = $("#image-list .image-item");
+		var max_size = 300;
+		for(var i = 0; i < imgElements.length; i++) {
+			console.log(imgElements[i].dataUrl);
+			post.images.push(imgElements[i].dataUrl);
+		}
+
 		console.log(JSON.stringify(post));
-		if(!post.title||post.title.length<10){
+		if(!post.title || post.title.length < 10) {
 			mui.toast("亲，请填写长度10-40个字符的标题");
 			return;
 		}
-		if(post.title.length>40){
+		if(post.title.length > 40) {
 			mui.toast("亲，标题太长啦，更多内容请填写在详细描述中");
 			return;
 		}
-		if(!post.description||post.description.length<10){
+		if(!post.description || post.description.length < 10) {
 			mui.toast("亲，请给点详细描述吧，最少10个字符");
 			return;
 		}
-		if(!post.images||post.images.length<1){
+		if(!post.images || post.images.length < 1) {
 			mui.toast("亲，无图无真相哦，请至少给一个图片吧");
+			return;
+		}
+		if(imgElements[i]>max_size*1024){
+			mui.toast('图片过大');
 			return;
 		}
 		$.ajax({
@@ -153,10 +158,37 @@ function sendPostBtnBind() {
 					console.log(JSON.stringify(list[key].id))
 					log += JSON.stringify(list[key].id);
 				}*/
-				mui.alert(log);
+				//mui.alert(log);
 				mui.alert("发布成功//TODO 跳转到帖子列表");
 				//1.调用自定事件，点击tab卡，切换到对应tab
 				//mui.fire(null,'gohome',{id:"HBuilder"})
+				mui.openWindow({
+					id: 'post.html',
+					url: '../Post/post.html',
+					styles: {
+						titleNView: {
+							titleText: "帖子列表",
+							titleColor: "#FFFFFF",
+							titleSize: "17px",
+							backgroundColor: "#DC143C",
+							autoBackButton: true,
+							progress: { // 标题栏控件的进度条样式
+								color: "#FFFFFF", // 进度条颜色,默认值为"#00FF00"  
+								height: "1px" // 进度条高度,默认值为"2px"         
+							},
+							splitLine: { // 标题栏控件的底部分割线，类似borderBottom
+								color: "#CCCCCC", // 分割线颜色,默认值为"#CCCCCC"  
+								height: "1px" // 分割线高度,默认值为"2px"
+							}
+						}
+					},
+					show: {
+						aniShow: "zoom-fade-out"
+					},
+					waiting: {
+						title: '努力加载中...',
+					}
+				});
 			}
 		});
 	});

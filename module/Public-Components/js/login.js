@@ -55,40 +55,12 @@ function login() {
 				log+=JSON.stringify(list[key].id);
 			}
 			//mui.alert(log);
-		
 			plus.webview.currentWebview().close(); 
-			/*if(plus.webview.getWebviewById("HBuilder")==null){
-				mui.alert("fuckMUI NULL");
-			}else{
-				plus.webview.getWebviewById("HBuilder").show();
-			}*/
-			//window.localStorage.getItem(sessionKey)不定时获取不到localStorage，无法执行下面语句，且下次无法自动登陆
-			//应该是写localStorage.setItem存在bug 证实是因为用户信息加载时机问题
-			//mui.toast("欢迎回来, "+JSON.parse(plus.storage.getItem(sessionKey)).name);
-			
+			mui.toast("登陆成功，欢迎回来，" + storageSessionUser.name);
 			console.log("登陆成功，欢迎回来，" + storageSessionUser.name);
 			plus.webview.getWebviewById("HBuilder").show();
-			//plus.webview.getWebviewById("module/Personal-Center/personal-center.html").reload(true);
-			/*var userCenterPage=findWebviewById("module/Personal-Center/personal-center.html");
-			mui.fire(userCenterPage, 'getUserById', {
-				id: storageSessionUser.id
-			});*/
+			
 		}
 	})
-	/*var sessionUserFake = {
-		"email": "4564@qq.com",
-		"id": 0,
-		"joinDate": "",
-		"name": account,
-		"phone": "",
-		"sex": "",
-		"token": "sessionUserFake"
-	};
-
-	window.localStorage.setItem(sessionKey, JSON.stringify(sessionUserFake));
-	console.log("接口未通，假定登陆成功，去到首页，" + JSON.parse(window.localStorage.getItem(sessionKey)).name);
-	mui.openWindow({
-		url: "/index.html",
-		createNew: true
-	})*/
+	
 }
