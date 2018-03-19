@@ -221,7 +221,8 @@
 				],
 				"refer": [
 					"index.html",
-					"module/Public-Components/login.html"
+					"module/Public-Components/login.html",
+					"module/Public-Components/user_operate.html"
 				],
 				"priority": 0
 			},
@@ -241,7 +242,8 @@
 					"module/Personal-Center/myCollection.html",
 					"module/Personal-Center/myMessage.html",
 					"module/Personal-Center/personalDetails.html",
-					"module/Personal-Center/changePassword.html"
+					"module/Personal-Center/changePassword.html",
+					"module/Public-Components/user_operate.html"
 				],
 				"priority": 0
 			},
@@ -291,7 +293,8 @@
 					"css/mui.min.css"
 				],
 				"refer": [
-					"module/Post/post-details.html"
+					"module/Post/post-details.html",
+					"module/Public-Components/user_operate.html"
 				],
 				"priority": 0
 			},
@@ -366,6 +369,14 @@
 				"resources": [],
 				"refer": [
 					"module/Public-Components/login.html"
+				],
+				"priority": 0
+			},
+			"module/Public-Components/user_operate.html": {
+				"resources": [],
+				"refer": [
+					"module/Public-Components/login.html",
+					"module/Public-Components/register.html"
 				],
 				"priority": 0
 			}

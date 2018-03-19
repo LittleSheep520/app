@@ -8,43 +8,83 @@
 		<link href="../../css/mui.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../../css/iconfont.css" />
 		<style>
-			html,
-			body {
-				background-color: #efeff4;
+			.mui-media img {
+				width: 50px;
+				height: 50px;
+			}
+			
+			.huodong {
+				background-color: #FFFFFF;
 			}
 			
 			h5 {
-				margin-bottom: 10px;
-				text-align: left;
+				line-height: 40px;
+				margin-left: 10px;
+				color: red;
+			}
+			
+			.mui-row img {
+				border: 0;
+				display: block;
+				width: 100%;
+				vertical-align: middle;
+			}
+			
+			.first>div {
+				border-bottom: 1px solid darkgray;
+			}
+			
+			.mui-row>div {
+				border-right: 1px solid darkgray;
+			}
+			.mui-input-row{
+				 height: 35px;
+			}
+			input[type=search]{
+				background: #FFFFFF;
 			}
 		</style>
 	</head>
 
 	<body>
-		<!--主页内容区-->
 		<div class="mui-content">
-			<div class="mui-input-row mui-search">
-				<input type="search" class="mui-input-clear" placeholder="搜索帖子">
+			<div class="mui-content-padded">
+				<div class="mui-input-row">
+				<input type="search" class="mui-input-clear" placeholder="搜索帖子...">
+			</div>  
 			</div>
 			<!--图片轮播-->
-			<div class="mui-slider">
+			<div id="slider" class="mui-slider">
 				<div class="mui-slider-group mui-slider-loop">
-					<!--支持循环，需要重复图片节点-->
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#"><img src="img/banner.jpg" /></a>
+						<a href="#">
+							<img src="img/banner3.jpg">
+						</a>
 					</div>
+					<!-- 第一张 -->
 					<div class="mui-slider-item">
-						<a href="#"><img src="img/integral-banner.jpg" /></a>
+						<a href="#">
+							<img src="img/banner1.png">
+						</a>
 					</div>
+					<!-- 第二张 -->
 					<div class="mui-slider-item">
-						<a href="#"><img src="img/banner.jpg" /></a>
+						<a href="#">
+							<img src="img/banner2.jpg">
+						</a>
 					</div>
+					<!-- 第三张 -->
 					<div class="mui-slider-item">
-						<a href="#"><img src="img/banner.jpg" /></a>
+						<a href="#">
+							<img src="img/banner3.jpg">
+						</a>
 					</div>
-					<!--支持循环，需要重复图片节点-->
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
 					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#"><img src="img/integral-banner.jpg" /></a>
+						<a href="#">
+							<img src="img/banner1.png">
+						</a>
 					</div>
 				</div>
 				<div class="mui-slider-indicator">
@@ -53,78 +93,88 @@
 					<div class="mui-indicator"></div>
 				</div>
 			</div>
-			<!--帖子类型导航-->
-			<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #fff;">
+			<!--导航-->
+			<ul class="mui-table-view mui-grid-view mui-grid-9">
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 					<a href="#">
-						<span class="mui-icon iconfont icon-maia"></span>
+						<img src="img/1.png" />
 						<div class="mui-media-body">卖闲置</div>
 					</a>
 				</li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 					<a href="#">
-						<span class="mui-icon iconfont icon-shequ"></span>
+						<img src="img/2.png" />
 						<div class="mui-media-body">逛社区</div>
 					</a>
 				</li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 					<a href="#">
-						<span class="mui-icon iconfont icon-jianzhi"></span>
+						<img src="img/8.png" />
 						<div class="mui-media-body">找兼职</div>
 					</a>
 				</li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 					<a href="#">
-						<span class="mui-icon iconfont icon-daigou"></span>
+						<img src="img/4.png" />
 						<div class="mui-media-body">找代购</div>
 					</a>
 				</li>
 				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 					<a href="#">
-						<span class="mui-icon iconfont icon-zufangzi"></span>
+						<img src="img/5.png" />
 						<div class="mui-media-body">租房子</div>
 					</a>
 				</li>
-			</ul>
-			<!--人气宝贝-->
-			<div style="padding-left: 10px;margin: 15px 0;">
-				<h5>人气宝贝</h5>
-			</div>
-			<ul class="mui-table-view mui-grid-view">
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
+				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
 					<a href="#">
-						<img class="mui-media-object" src="img/23.jpg">
-						<div class="mui-media-body">红豆玉米粉</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-					<a href="#">
-						<img class="mui-media-object" src="img/24.jpg">
-						<div class="mui-media-body">皇家橄榄油</div>
+						<img src="img/7.png" />
+						<div class="mui-media-body">找中介</div>
 					</a>
 				</li>
 			</ul>
-			<!--平台活动-->
-			<div style="padding-left: 10px;margin: 15px 0;">
-				<h5>平台活动</h5>
+			<!--活动-->
+			<div class="huodong">
+				<h5>最新活动</h5>
 			</div>
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						平台活动1
-					</a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						平台活动2
-					</a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						平台活动3
-					</a>
-				</li>
-			</ul>
+			<div class="mui-row first">
+				<div class="mui-col-xs-6">
+					<img src="img/jf-13.png" />
+				</div>
+				<div class="mui-col-xs-6">
+					<img src="img/jf-14.png" />
+				</div>
+			</div>
+			<div class="mui-row">
+				<div class="mui-col-xs-6">
+					<img src="img/jf-15.png" />
+				</div>
+				<div class="mui-col-xs-6">
+					<img src="img/jf.png" />
+				</div>
+			</div>
+			<!--随机广告-->
+			<div class="mui-row" style="margin-top: 5px;">
+				<div class="mui-col-xs-12">
+					<img src="img/birthday.png" />
+				</div>
+			</div>
+			<!--闲置专区-->
+			<div class="huodong">
+				<h5>闲置专区</h5>
+			</div>
+			<div class="mui-row">
+				<div class="mui-col-xs-4">
+					<img src="img/fenlei-03.png" />
+				</div>
+				<div class="mui-col-xs-4">
+					<img src="img/fenlei-05.png" />
+				</div>
+				<div class="mui-col-xs-4">
+					<img src="img/fenlei-07.png" />
+				</div>
+			</div>
+			&nbsp;
+
 		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript" src="js/home.js" ></script>

@@ -6,6 +6,19 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<style>
+			header.mui-bar {
+				background-color: rgba( 220, 20, 60, 1);
+			}
+			
+			header.mui-bar .mui-title {
+				color: #FFFFFF;
+			}
+			
+			header.mui-bar a {
+				color: #FFFFFF;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -21,41 +34,10 @@
 				<div class="mui-card-header mui-card-media">
 					<div class="mui-slider">
 						<div id="image-list" class="mui-slider-group mui-slider-loop">
-							<!--
-                            	备注者：2008xiaochu@sina.com
-                            	时间：2018-02-21
-                            	描述：
-                            		需轮播的图片添加一个mui-slider-item即可，
-                            		需循环则在首位各额外添加一个mui-slider-item mui-slider-item-duplicate
-                            		注意主动触发轮播动画
-                            -->
-							<!--
-							<div class="mui-slider-item mui-slider-item-duplicate">
-								<a href="#"><img src="../Home-Page/img/banner.jpg" /></a>
-							</div>
-							
-							<div class="mui-slider-item">
-								<a href="#"><img src="../Home-Page/img/24.jpg" /></a>
-							</div>
-							<div class="mui-slider-item">
-								<a href="#"><img src="../Home-Page/img/24.jpg" /></a>
-							</div>
-							
-							<div class="mui-slider-item mui-slider-item-duplicate">
-								<a href="#"><img src="../Home-Page/img/integral-banner.jpg" /></a>
-							</div>
-							-->
+
 						</div>
 						<div id="images-indicator" class="mui-slider-indicator">
-							<!--
-                            	备注者：2008xiaochu@sina.com
-                            	时间：2018-02-21
-                            	描述：轮播的指示器
-                            -->
-							<!--
-							<div class="mui-indicator mui-active"></div>
-							<div class="mui-indicator"></div>
-                            -->
+
 						</div>
 					</div>
 				</div>
@@ -66,46 +48,56 @@
 						<p id="description" style="color: #333;">-</p>
 					</div>
 				</div>
-				<!--
+
 				<div class="mui-card-footer">
-					<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined mui-icon mui-icon-star">点赞<span class="mui-badge mui-badge-primary mui-badge-inverted">2</span></button>
-					<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined mui-icon mui-icon-chatboxes">
+					<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined mui-icon mui-icon-star">价格<span id="price" class="mui-badge mui-badge-primary mui-badge-inverted">2</span></button>
+
+					<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined mui-icon mui-icon-star">数量<span id="number" class="mui-badge mui-badge-primary mui-badge-inverted">2</span></button>
+				</div>
+
+			</div>
+
+			<div class="mui-card">
+				<div class="mui-card-footer">
+
+					<button type="button" class="mui-btn mui-btn-primary  mui-icon mui-icon-star">点赞<span class="mui-badge mui-badge-primary mui-badge-inverted">2</span></button>
+					<button type="button" class="mui-btn mui-btn-primary  mui-icon mui-icon-chatboxes">
 					我要私信
 				    </button>
-					<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined mui-icon mui-icon-plus">
+					<button type="button" class="mui-btn mui-btn-primary  mui-icon mui-icon-plus">
 					收藏
 				  </button>
+
 				</div>
-                -->
 			</div>
-			<!--
+
 			<div class="mui-card">
 				<div class="mui-card-header">用户评论</div>
 				<div class="mui-card-content">
-						<div class="mui-card">
-							<div class="mui-card-header mui-card-media">
-								<img src="img/logo.png" />
-								<div class="mui-media-body">
-									小M
-									<p>发表于 2016-06-30 15:30</p>
-								</div>
-							</div>
-							<div class="mui-card-content-inner">
-								666666
+					<div class="mui-card">
+						<div class="mui-card-header mui-card-media">
+							<img src="img/logo.png" />
+							<div class="mui-media-body">
+								小M
+								<p>发表于 2016-06-30 15:30</p>
 							</div>
 						</div>
-						<div class="mui-card">
-							<div class="mui-card-header mui-card-media">
-								<img src="img/logo.png" />
-								<div class="mui-media-body">
-									小T
-									<p>发表于 2016-06-30 15:30</p>
-								</div>
-							</div>
-							<div class="mui-card-content-inner">
-								23333
+						<div class="mui-card-content-inner">
+							666666
+						</div>
+					</div>
+					<div class="mui-card">
+						<div class="mui-card-header mui-card-media">
+							<img src="img/logo.png" />
+							<div class="mui-media-body">
+								小T
+								<p>发表于 2016-06-30 15:30</p>
 							</div>
 						</div>
+						<div class="mui-card-content-inner">
+							23333
+						</div>
+					</div>
 				</div>
 				<div class="mui-card-footer">
 					<div class="mui-input-row">
@@ -116,12 +108,11 @@
 					提交
 				  </button>
 				</div>
-				
+
 			</div>
-            -->
 
 		</div>
-		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js" ></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js"></script>
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/commons.js"></script>
 		<script src="js/post-details.js"></script>

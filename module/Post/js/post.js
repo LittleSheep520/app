@@ -76,7 +76,7 @@ function vender() {
 		var li = document.createElement('li');
 		li.className = 'mui-table-view-cell mui-media';
 		li.innerHTML = '<li id=' + postList[i].id + '>' + '<p hidden="hidden">' + postList[i].id + '</p><a class="mui-navigate-right"><img class="mui-media-object mui-pull-left" src='+postList[i].images[0]+'><div class="mui-media-body">' +
-		postList[i].title + '<p class="mui-ellipsis"><a style="font-size:100%;opacity:0.3;">[' + postType[postList[i].type].text + ']</a>' +postList[i].description + '</p></div></a></li>';
+		postList[i].title + '<p class="mui-ellipsis"><span style="color:#CC0000;">[' + postType[postList[i].type].text + ']</span>'+postList[i].description + '</p></div></a></li>';
 		table.appendChild(li);
 	}
 	//}, 1500);

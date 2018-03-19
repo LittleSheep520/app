@@ -56,6 +56,12 @@
 		fileInput.setAttribute('id', 'image-' + imageIndexIdNum);
 		fileInput.addEventListener('change', function(event) {
 			var file = fileInput.files[0];
+			var max_size = file.size;
+			max_size = Math.round(max_size / 1024 * 300) / 300;
+			if(max_size >= 300) {
+				mui.toast('照片最大尺寸大于300k，请重新上传!');
+				return false;
+			}
 			if(file) {
 				var reader = new FileReader();
 				reader.onload = function() {
@@ -64,7 +70,7 @@
 					var dataUrl = 'data:image/png;base64,' + base64;
 					//
 					placeholder.style.backgroundImage = 'url(' + dataUrl + ')';
-					placeholder.dataUrl=dataUrl;
+					placeholder.dataUrl = dataUrl;
 				}
 				reader.readAsDataURL(file);
 				placeholder.classList.remove('space');

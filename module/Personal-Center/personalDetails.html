@@ -6,47 +6,12 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.min.css" rel="stylesheet" />
-		<style type="text/css">
-			.mui-btn {
-				padding: 8px;
-			}
-			.logo img {
-				width: 120px;
-				margin: 20px auto;
-				display: block;
-			}
-		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left "></a>
-			<h1 class="mui-title">个人详情</h1>
-		</header>
+		
 		<div class="mui-content">
-			<div class="mui-content-padded" style="margin: 5px;">
-				<div class="logo"><img src="img/info.png" /></div>
-				<h5>可修改除手机号码的其余信息</h5>
-				<form class="mui-input-group">
-					<div class="mui-input-row">
-						<label>昵称</label>
-						<input type="text" id="name" class="mui-input-clear" placeholder="你的昵称">
-					</div>
-					<div class="mui-input-row">
-						<label>邮箱</label>
-						<input type="email" id="email" class="mui-input-clear" placeholder="你的邮箱">
-					</div>
-					<div class="mui-input-row">
-						<label>手机</label>
-						<input type="text" id="phone" class="mui-input-clear" placeholder="你的手机号码" disabled="disabled">
-					</div>
-					<div class="mui-input-row">
-						<label>性别</label>
-						<input type="text" id="sex" class="mui-input-clear" placeholder="你的性别">
-					</div>
-				</form>
-				<button style="margin-top: 5px;" type="button" id='saveInfo' class="mui-btn mui-btn-primary mui-btn-block">保存</button>
-			</div>
+			
 			
 		</div>
 		<script src="../../js/mui.min.js"></script>
@@ -54,13 +19,6 @@
 		<script type="text/javascript" src="../../js/commons.js"></script>
 		<script type="text/javascript">
 			mui.init();
-			$(function() {
-				var sessionUser = getSessionUser();
-				$('#name').val(sessionUser.name);
-				$('#email').val(sessionUser.email)
-				$('#phone').val(sessionUser.phone);
-				$('#sex').val(sessionUser.sex);
-			})
 		</script>
 	</body>
 

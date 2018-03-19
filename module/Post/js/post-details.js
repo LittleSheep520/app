@@ -23,13 +23,13 @@ function getPost(id) {
 			if(!ajaxResultCheck(result)) return;
 			var post = result.data;
 			console.log(JSON.stringify(post));
-			
 			//标题及其他
 			$(".mui-title").text(postType[post.type].text);
 			$("#title").text(post.title);
 			$("#extra").text(post.insertDate);
 			$("#description").text(post.description);
-			
+			$("#price").text(post.price);
+			$("#number").text(post.number);
 			//图片
 			var imgList = $("#image-list");
 			var imgIndicators = $("#images-indicator");

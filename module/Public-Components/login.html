@@ -3,12 +3,16 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>登录</title>
+		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
 		<style>
-			.mui-btn {
-				padding: 8px;
+			.mui-btn-block {
+				padding: 6.5px 0;
+			}
+			
+			.mui-btn-danger {
+				background-color: #ED3341;
 			}
 			
 			.link-area {
@@ -22,82 +26,141 @@
 				padding: 0px 8px;
 			}
 			
+			a {
+				color: #ED3341;
+			}
+			
 			.logo img {
 				width: 120px;
 				margin: 20px auto;
 				display: block;
+			}
+			
+			.password {
+				float: right;
+				padding-right: 5px;
+			}
+			
+			header.mui-bar {
+				background-color: rgba( 220, 20, 60, 1);
+			}
+			
+			header.mui-bar .mui-title {
+				color: #FFFFFF;
+			}
+			
+			.mui-pull-right {
+				color: #FFFFFF;
+			}
+			
+			.mui-plus .plus {
+				display: inline;
+			}
+			
+			.plus {
+				display: none;
+			}
+			
+			#topPopover {
+				position: fixed;
+				top: 16px;
+				right: 6px;
+			}
+			
+			#topPopover .mui-popover-arrow {
+				left: auto;
+				right: 6px;
+			}
+			
+			.mui-popover {
+				width: 250px;
+				height: 140px;
 			}
 		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">登录</h1>
+			<a class="mui-action-menu mui-icon mui-icon-bars mui-pull-right" href="#topPopover"></a>
+			<h1 id="title" class="mui-title">密码登录</h1>
 		</header>
 		<div class="mui-content">
-			<div class="mui-content-padded" style="margin: 10px;">
-				<div class="logo"><img src="img/login.png" /></div>
-
+			<div class="mui-content-padded">
+				<div class="logo"><img src="img/18.png" /></div>
 				<div class="mui-input-row">
-					<input type="text" id="account" class="mui-input-clear" placeholder="请输入手机号码" value="">
+					<input type="text" id="account" name="account" class="mui-input-clear" placeholder="请输入手机号">
 				</div>
-				<div class="mui-input-row mui-password">
-					<input type="password" id="password" class="mui-input-password" placeholder="请输入密码" value="">
+				<div class="mui-input-row">
+					<input type="password" id="password" name="password" class="mui-input-password" placeholder="请输入密码">
 				</div>
-				<button type="button" id="login" class="mui-btn mui-btn-primary mui-btn-block">立即登录</button>
-				<button type="button" id="iphon" class="mui-btn mui-btn-purple mui-btn-block">手机一键登录</button>
-				<div class="link-area">
-					<a id='reg'>注册账号</a> <span class="spliter">|</span>
-					<a id='forgetPassword'>忘记密码</a>
+				<button type="button" id="login" class="mui-btn mui-btn-danger mui-btn-block">立即登录</button>
+
+			</div>
+		</div>
+		<!--右上角弹出菜单-->
+		<div id="topPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right" id="register">新手注册</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right" id="phon_login">手机登录</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right" id="forget_password">忘记密码</a>
+						</li>
+					</ul>
 				</div>
 			</div>
+
 		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/jquery-2.1.0.min.js"></script>
 		<script src="../../js/commons.js"></script>
+		<script src="js/login.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			mui.plusReady(function() {
 				mui.back = disableBack;
-				var page = mui.preload({
-					url: 'register.html',
-					id: 'register.html', //默认使用当前页面的url作为id
-					styles: {}, //窗口参数
-					extras: {} //自定义扩展参数
-				});
-				var page2 = mui.preload({
-					url: 'forget-password.html',
-					id: 'forget-password.html', //默认使用当前页面的url作为id
-					styles: {}, //窗口参数
-					extras: {} //自定义扩展参数
-				});
-				var page3 = mui.preload({
-					url: 'iphon-login.html',
-					id: 'iphon-login.html', //默认使用当前页面的url作为id
-					styles: {}, //窗口参数
-					extras: {} //自定义扩展参数
-				});
 			})
-			document.getElementById('reg').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'register.html',
-					id: 'register.html'
-				});
-			});
-			document.getElementById('forgetPassword').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'forget-password.html',
-					id: 'forget-password.html'
-				});
-			});
-			document.getElementById('iphon').addEventListener('tap', function() {
+			mui('.mui-scroll-wrapper').scroll();
+			//手机登录
+			document.getElementById('phon_login').addEventListener('tap', function() {
 				mui.openWindow({
 					url: 'iphon-login.html',
-					id: 'iphon-login.html'
-				});
-			});
+					id: 'iphon-login.html',
+					waiting: {
+						title: '努力加载中...',
+					}
+				})
+
+			})
+			//注册
+			document.getElementById('register').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'register.html',
+					id: 'register.html',
+					waiting: {
+						title: '努力加载中...',
+					}
+				})
+
+			})
+			//忘记密码
+			document.getElementById('forget_password').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'forget-password.html',
+					id: 'forget-password.html',
+					waiting: {
+						title: '努力加载中...',
+					}
+				})
+
+			})
 		</script>
-		<script src="js/login.js"></script>
 	</body>
 
 </html>
