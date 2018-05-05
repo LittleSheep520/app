@@ -1,5 +1,6 @@
 //添加Id自定义事件监听
 var currentPostId = "no";
+
 window.addEventListener('getPostById', function(event) {
 	console.log("event");
 	//获得事件参数
@@ -38,7 +39,7 @@ function getPost(id) {
 			$(imgIndicators).empty();
 			//支持循环
 			if(post.images.length >= 2) {
-				var imageItemDiv = '<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src=' + post.images[post.images.length - 1] + ' /></a></div>';
+				var imageItemDiv = '<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src=' + post.images[post.images.length - 1] + '  /></a></div>';
 				$(imgList).append(imageItemDiv);
 			}
 			//插入图片列表

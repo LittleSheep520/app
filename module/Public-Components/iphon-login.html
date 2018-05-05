@@ -5,69 +5,62 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" href="../../css/mui.min.css" />
-		<style>
-			.mui-btn-block {
-				padding: 6.5px 0;
-			}
-			.mui-action-back{
-				color: #FFFFFF;
-			}
-			.mui-btn-danger {
-				background-color: #ED3341;
-			}
-			
-			header.mui-bar {
-				background-color: rgba( 220, 20, 60, 1);
-			}
-			
-			header.mui-bar .mui-title {
-				color: #FFFFFF;
-			}
-			
-			#verificationCode {
-				width: 60%;
-			}
-			
-			.yzm {
-				padding: 9.5px 15px;
-			}
-		</style>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../mdui-v0.4.1/css/mdui.min.css" />
+		<link rel="stylesheet" href="css/login.css" />
 	</head>
 
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 id="title" class="mui-title">手机登录</h1>
-		</header>
-		<div class="mui-content">
-			<div class="mui-content-padded"> 
-				<div class="mui-input-row">
-					<input type="text" id="account" class="mui-input-clear" placeholder="请输入手机号">
-				</div>
-				<div class="mui-input-row">
-					<input type="text" id="verificationCode" placeholder="请输入验证码">
-					<button type="button" id="btn" class="mui-btn-danger yzm">获取验证码</button>
-				</div>
-				<button type="button" id="login" class="mui-btn mui-btn-danger mui-btn-block">立即登录</button>
+	<body class="mdui-theme-primary-pink mdui-theme-accent-pink mdui-appbar-with-toolbar">
+		<div class="mdui-appbar mdui-appbar-fixed">
+			<div class="mdui-toolbar mdui-color-pink">
+				<a href="javascript:;" class="mdui-btn mdui-btn-icon mui-action-back"><i class="mdui-icon material-icons">&#xe5c4;</i></a>
 			</div>
+		</div>
+		<div class="mdui-container">
+			<div class="mdui-textfield">
+				<i class="mdui-icon material-icons">&#xe325;</i>
+				<input id="account" class="mdui-textfield-input" type="text" placeholder="输入手机号" />
+			</div>
+			<div class="mdui-textfield verificationbox">
+				<i class="mdui-icon material-icons">&#xe8e8;</i>
+				<input id="verificationCode" class="mdui-textfield-input" type="password" placeholder="输入验证码" />
+				<input type="button" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent verification" id="btn" value="获取验证码" />
+			</div>
+			<button type="button" id="login" class="mdui-btn mdui-btn-block mdui-btn-raised mdui-ripple mdui-color-theme-accent">立即登录</button>
 		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="../../mdui-v0.4.1/js/mdui.min.js"></script>
 		<script src="../../js/commons.js"></script>
 		<script src="js/login.js"></script>
 		<script type="text/javascript">
-			mui.init();
+			mui.init({
+				beforeback: function() {　　 //获得父页面的webview
+					var list = plus.webview.currentWebview().opener();　　 //触发父页面的自定义事件(refresh),从而进行刷新
+					mui.fire(list, 'refresh');
+					//返回true,继续页面关闭逻辑
+					return true;
+				}
+			});
+			var old_back = mui.back;
+			mui.back = function() {
+				//显示上一个界面；
+				$('#account').val(null);
+				$('#verificationCode').val(null);
+				//继续当前页面原有返回逻辑
+				old_back();
+			}
 			var wait = 60;
 
 			function time(o) {
 				if(wait == 0) {
 					o.removeAttribute("disabled");
-					o.innerHTML = "获取验证码";
+					o.value = "获取验证码";
 					wait = 60;
 				} else {
 					o.setAttribute("disabled", true);
-					o.innerHTML = "重新发送(" + wait + ")";
+					o.value = "重新发送(" + wait + ")";
 					wait--;
 					setTimeout(function() {
 							time(o)

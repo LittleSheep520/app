@@ -5,18 +5,38 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../mdui-v0.4.1/css/mdui.min.css" />
 	</head>
 
-	<body>
-		
-		<div class="mui-content">
-			
-			
+	<body class="mdui-theme-primary-pink mdui-theme-accent-pink">
+		<div class="mdui-container-fluid">
+			<div class="mdui-textfield">
+				<i class="mdui-icon material-icons">&#xe853;</i>
+				<label class="mdui-textfield-label">我的昵称</label>
+				<input class="mdui-textfield-input" id="name" type="text" disabled />
+			</div>
+			<div class="mdui-textfield">
+				<i class="mdui-icon material-icons">&#xe0ba;</i>
+				<label class="mdui-textfield-label">我的性别</label>
+				<input class="mdui-textfield-input" id="sex" type="text" />
+			</div>
+			<div class="mdui-textfield">
+				<i class="mdui-icon material-icons">&#xe325;</i>
+				<label class="mdui-textfield-label">我的手机</label>
+				<input class="mdui-textfield-input" id="phone" type="text" disabled />
+			</div>
+			<div class="mdui-textfield">
+				<i class="mdui-icon material-icons">&#xe0be;</i>
+				<label class="mdui-textfield-label">我的邮箱</label>
+				<input class="mdui-textfield-input" id="email" type="text" />
+			</div>
+			<button id="changeInfo" class="mdui-btn mdui-btn-raised mdui-btn-block mdui-color-theme-accent mdui-ripple" style="margin-top: 20px;">立即修改</button>
 		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="../../mdui-v0.4.1/js/mdui.min.js"></script>
 		<script type="text/javascript" src="../../js/commons.js"></script>
+		<script type="text/javascript" src="js/personal-center.js"></script>
 		<script type="text/javascript">
 			mui.init();
 		</script>

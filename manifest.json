@@ -199,7 +199,8 @@
 				],
 				"refer": [
 					"module/Personal-Center/personal-center.html",
-					"module/Release/release.html"
+					"module/Release/release.html",
+					"module/Public-Components/login.html"
 				],
 				"priority": 0
 			},
@@ -222,7 +223,8 @@
 				"refer": [
 					"index.html",
 					"module/Public-Components/login.html",
-					"module/Public-Components/user_operate.html"
+					"module/Public-Components/user_operate.html",
+					"module/Post/post.html"
 				],
 				"priority": 0
 			},
