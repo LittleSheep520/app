@@ -10,7 +10,7 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<style>
 			header.mui-bar {
-				background-color: rgba( 220, 20, 60, 1);
+				background-color: rgba( 255, 82, 82, 1);
 			}
 			
 			header.mui-bar .mui-title {
@@ -18,21 +18,17 @@
 			}
 			
 			#tab .mui-tab-item.mui-active {
-				color: #dc143c
+				color: #FF5252;
 			}
 			
 			.mui-bar .mui-btn-link {
 				color: #FFFFFF;
 			}
-			
 		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<!--<div class="mui-input-row mui-search">
-				<input type="search" class="mui-input-clear" placeholder="搜索帖子...">
-			</div>-->
 			<h1 id="title" class="mui-title">首页</h1>
 		</header>
 		<nav class="mui-bar mui-bar-tab" id="tab">
@@ -46,11 +42,11 @@
 			</a>
 			<a class="mui-tab-item" href="module/Personal-Center/personal-center.html">
 				<span class="mui-icon mui-icon-person-filled"></span>
-				<span id="personal" class="mui-tab-label">个人中心</span>
+				<span id="personal" class="mui-tab-label">我的</span>
 			</a>
 		</nav>
 		<script src="js/mui.min.js"></script>
-		<script type="text/javascript" src="js/jquery-2.1.0.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
 		<script>
 			//mui初始化
 			mui.init();
@@ -79,19 +75,6 @@
 					}
 					self.append(sub);
 				}
-				//避免底部导航栏被输入法顶起的现象
-				//				var heigh = plus.display.resolutionHeight; //获得手机屏幕高度 
-				//				window.addEventListener('resize', function() //resize 件事监听软盘打开或关闭时的动作，
-				//					{
-				//						if(heigh == plus.display.resolutionHeight) //当软盘关闭时，屏幕的高等于原来的高
-				//						{
-				//							//当软盘关闭时，把隐藏的元素，显示出来
-				//							document.getElementsByID("tab").style.display = 'block';
-				//						} else {
-				//							// 当软盘弹出时，手机屏幕会被压缩，此时屏幕高度小于之前的， 隐藏被顶起的元素
-				//							document.getElementsByID("tab").style.display = 'none';
-				//						}
-				//					}, false);
 			});
 			//当前激活选项
 			var activeTab = subpages[0];
@@ -104,13 +87,6 @@
 				}
 				//更换标题
 				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
-//				var thisTitle = this.querySelector('.mui-tab-label').innerHTML;
-//				if(thisTitle == "首页") {
-//					$('#title').hide();
-//					thisTitle.innerHTML='<p style="color:#FFFFFF">dd</p>';
-//				} else {
-//					title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
-//				}
 				//显示目标选项卡
 				//若为iOS平台或非首次显示，则直接显示
 				if(mui.os.ios || aniShow[targetTab]) {

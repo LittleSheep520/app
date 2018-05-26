@@ -6,80 +6,66 @@
 		<title>个人中心</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../mdui-v0.4.1/css/mdui.min.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			.mui-table-view {
+				margin-top: 10px;
+			}
+			
+			.mdui-icon {
+				color: #FF5252;
+			}
+		</style>
 	</head>
 
-	<body>
+	<body class="mdui-theme-accent-red">
 		<div class="mui-content" id="my">
 			<div class="my_info">
 				<img src="img/bj.png" />
 				<div class="my_mian">
 					<p class="my_pic">
-						<img src="img/my_03.png" />
+						<img src="img/b6.png" />
 					</p>
 					<span id="account" class="my_number">你还未登录</span>
-					<span class="my_text">这人很懒！</span>
-
+					<span class="my_text">诚信交易出租，信用证明一切</span>
 				</div>
 			</div>
-			<div class="my_content clearfix">
-				<ul>
-					<a id="myMessage">
-						<li class="my_border">
-							<span class="my_pic"><img src="img/main_04.png" /></span>
-							<span class="my_order">我的消息</span>
-							<span class="my_right"><img src="img/right.png"/></span>
-						</li>
-					</a>
-					<a id="myPost">
-						<li class="my_border topline">
-							<span class="my_pic"><img src="img/main_11.png" /></span>
-							<span class="my_order">我的帖子</span>
-							<span class="my_right"><img src="img/right.png"/></span>
-						</li>
-					</a>
-					<a id="myCollection">
-						<li class="my_border topline">
-							<span class="my_pic"><img src="img/main_13.png" /></span>
-							<span class="my_order">我的收藏</span>
-							<span class="my_right"><img src="img/right.png"/></span>
-						</li>
-					</a>
-					<a id="personalData">
-						<li class="topline">
-							<span class="my_pic"><img src="img/main_15.png" /></span>
-							<span class="my_order">个人详情</span>
-							<span class="my_right"><img src="img/right.png"/></span>
-						</li>
-					</a>
-					<a id="changePassword">
-						<li class="topline">
-							<span class="my_pic"><img src="img/main_11.png" /></span>
-							<span class="my_order">修改密码</span>
-							<span class="my_right"><img src="img/right.png"/></span>
-						</li>
-					</a>
-				</ul>
-			</div>
-			<div id="close">
-				<a id='login' class="close_con loginedHide">立即登录</a>
-				<a id='logout' class="close_con notLoginHide">退出登录</a>
-			</div>
-			&nbsp;
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell">
+					<a id="myMessage" class="mui-navigate-right"><i class="mdui-icon material-icons">&#xe0c9;</i>&nbsp;我的消息</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="myPost" class="mui-navigate-right"><i class="mdui-icon material-icons">&#xe554;</i>&nbsp;我的帖子</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="myCollection" class="mui-navigate-right"><i class="mdui-icon material-icons">&#xe838;</i>&nbsp;我的收藏</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="personalData" class="mui-navigate-right"><i class="mdui-icon material-icons">&#xe55a;</i>&nbsp;个人详情</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="changePassword" class="mui-navigate-right"><i class="mdui-icon material-icons">&#xe899;</i>&nbsp;修改密码</a>
+				</li>
+			</ul>
+		</div>
+		<div class="mdui-container-fluid" style="margin-top: 15px;">
+			<button id='logout' class="notLoginHide mdui-btn mdui-btn-raised mdui-btn-block mdui-color-theme-accent mdui-ripple">退出登录</button>
+			<button id='login' class="loginedHide mdui-btn mdui-btn-raised mdui-btn-block mdui-color-theme-accent mdui-ripple">立即登录</button>
 		</div>
 
 		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js"></script>
 		<script src="../../js/mui.min.js"></script>
-		<script type="text/javascript" src="js/rem.js" ></script>
+		<script type="text/javascript" src="js/rem.js"></script>
 		<script src="../../js/commons.js"></script>
-		<script type="text/javascript" src="js/page-change.js" ></script>
+		<script type="text/javascript" src="js/page-change.js"></script>
 		<script src="js/personal-center.js"></script>
 		<script type="text/javascript">
-			mui.init()
-			document.getElementById('login').addEventListener('tap',function(){
+			mui.init();
+			document.getElementById('login').addEventListener('tap', function() {
 				mui.openWindow({
-					url:'../Public-Components/user_operate.html',
-					id:'user_operate.html'
+					url: '../Public-Components/login.html',
+					id: 'login.html'
 				});
 			});
 		</script>

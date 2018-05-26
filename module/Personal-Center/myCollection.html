@@ -5,17 +5,95 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../mdui-v0.4.1/css/mdui.min.css" />
 	</head>
 
 	<body>
 		
-		<div class="mui-content">
-			
+		<div id="pullrefresh" class="mdui-container-fluid">
+			<ul class="mdui-list">
+				
+			</ul>
 		</div>
 		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js" ></script>
+		<script type="text/javascript" src="../../js/commons.js" ></script>
 		<script type="text/javascript">
-			mui.init()
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						style: 'circle',
+						callback: pulldownRefresh
+					},
+					up: {
+						auto: true,
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			var count = 0;
+
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+					var table = document.body.querySelector('.mdui-list');
+					var cells = document.body.querySelectorAll('.mdui-list-item');
+					var newCount = cells.length > 0 ? 5 : 7; //首次加载20条，满屏
+					for(var i = cells.length, len = i + newCount; i < len; i++) {
+						var div = document.createElement('div');
+						div.innerHTML = '<li class="mdui-list-item">' +
+							'<div class="mdui-list-item-avatar"><img src="../Home-Page/img/260.png" /></div>' +
+							'<div class="mdui-list-item-content">猫山狗海</div>' +
+							'<span class="mdui-text-color-red">¥150</span>' +
+							'</li>' +
+							'<div class="mdui-row-xs-3 mdui-row-sm-4 mdui-row-md-5 mdui-row-lg-6 mdui-row-xl-7 mdui-grid-list">'+
+							'<div class="mdui-col"><div class="mdui-grid-tile"><img class="mdui-img-rounded" src="../Home-Page/img/apic23124.jpg" /></div></div>'+
+							'<div class="mdui-col"><div class="mdui-grid-tile"><img class="mdui-img-rounded" src="../Home-Page/img/zzpic9780.jpg" /></div></div>'+
+							'<div class="mdui-col"><div class="mdui-grid-tile"><img class="mdui-img-rounded" src="../Home-Page/img/zzpic10410.jpg" /></div></div>'+
+							'</div>'+
+							'<p class="mdui-typo-body-1">99新相机出售，外观完美无瑕疵。成像清晰，需要的请联系我！</p>'+
+							'<p class="mdui-text-right mdui-text-color-orange-300"><i class="mdui-icon material-icons">&#xe838;</i>取消收藏</p>'+
+							'<div class="mdui-typo"><hr/></div>';
+						table.appendChild(div);
+					}
+				}, 1500);
+			}
+
+			function addData() {
+				var table = document.body.querySelector('.mdui-list');
+				var cells = document.body.querySelectorAll('.mdui-list-item');
+				for(var i = cells.length, len = i + 5; i < len; i++) {
+					var div = document.createElement('div');
+					div.innerHTML = '<li class="mdui-list-item">' +
+							'<div class="mdui-list-item-avatar"><img src="../Home-Page/img/260.png" /></div>' +
+							'<div class="mdui-list-item-content">猫山狗海</div>' +
+							'<span class="mdui-text-color-red">¥150</span>' +
+							'</li>' +
+							'<div class="mdui-row-xs-3 mdui-row-sm-4 mdui-row-md-5 mdui-row-lg-6 mdui-row-xl-7 mdui-grid-list">'+
+							'<div class="mdui-col"><div class="mdui-grid-tile"><img class="mdui-img-rounded" src="../Home-Page/img/apic23124.jpg" /></div></div>'+
+							'<div class="mdui-col"><div class="mdui-grid-tile"><img class="mdui-img-rounded" src="../Home-Page/img/zzpic9780.jpg" /></div></div>'+
+							'<div class="mdui-col"><div class="mdui-grid-tile"><img class="mdui-img-rounded" src="../Home-Page/img/zzpic10410.jpg" /></div></div>'+
+							'</div>'+
+							'<p class="mdui-typo-body-1">99新相机出售，外观完美无瑕疵。成像清晰，需要的请联系我！</p>'+
+							'<p class="mdui-text-right mdui-text-color-orange-300"><i class="mdui-icon material-icons">&#xe838;</i>取消收藏</p>'+
+							'<div class="mdui-typo"><hr/></div>';
+					//下拉刷新，新纪录插到最前面；
+					table.insertBefore(div, table.firstChild);
+				}
+			}
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					addData();
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+					mui.toast("为你更新5条信息");
+				}, 1500);
+			}
 		</script>
 	</body>
 

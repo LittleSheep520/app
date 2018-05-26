@@ -9,14 +9,16 @@
 		"refer": [
 			"module/Home-Page/home.html",
 			"module/Personal-Center/personal-center.html",
-			"module/Release/release.html"
+			"module/Release/release.html",
+			"module/Public-Components/login.html"
 		]
 	},
 	"module/Release/release.html": {
 		"refer": [
 			"index.html",
 			"module/Public-Components/login.html",
-			"module/Public-Components/user_operate.html"
+			"module/Public-Components/user_operate.html",
+			"module/Post/post.html"
 		],
 		"resources": [
 			"module/Release/js/mui.poppicker.js",

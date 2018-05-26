@@ -6,178 +6,328 @@
 		<title>首页</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../mdui-v0.4.1/css/mdui.min.css" />
+		<link rel="stylesheet" href="../../css/swiper.min.css" />
 		<style>
-			.mui-media img {
-				width: 50px;
-				height: 50px;
-			}
-			
-			.huodong {
-				background-color: #FFFFFF;
-			}
-			
-			h5 {
-				line-height: 40px;
-				margin-left: 10px;
-				color: red;
-			}
-			
-			.mui-row img {
+			img {
 				border: 0;
 				display: block;
 				width: 100%;
 				vertical-align: middle;
-			}
-			
-			.first>div {
-				border-bottom: 1px solid darkgray;
-			}
-			
-			.mui-row>div {
-				border-right: 1px solid darkgray;
-			}
-			.mui-input-row{
-				 height: 35px;
-			}
-			input[type=search]{
-				background: #FFFFFF;
 			}
 		</style>
 	</head>
 
 	<body>
 		<div class="mui-content">
-			<div class="mui-content-padded">
-				<div class="mui-input-row">
-				<input type="search" class="mui-input-clear" placeholder="搜索帖子...">
-			</div>  
-			</div>
-			<!--图片轮播-->
-			<div id="slider" class="mui-slider">
-				<div class="mui-slider-group mui-slider-loop">
-					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#">
-							<img src="img/banner3.jpg">
-						</a>
-					</div>
-					<!-- 第一张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="img/banner1.png">
-						</a>
-					</div>
-					<!-- 第二张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="img/banner2.jpg">
-						</a>
-					</div>
-					<!-- 第三张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="img/banner3.jpg">
-						</a>
-					</div>
-					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
-					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#">
-							<img src="img/banner1.png">
-						</a>
-					</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="img/banner7.jpg"></div>
+					<div class="swiper-slide"><img src="img/banner2.jpg"></div>
+					<div class="swiper-slide"><img src="img/banner3.jpg"></div>
+					<div class="swiper-slide"><img src="img/banner4.jpg"></div>
+					<div class="swiper-slide"><img src="img/banner5.jpg"></div>
+					<div class="swiper-slide"><img src="img/banner6.jpg"></div>
+					<div class="swiper-slide"><img src="img/banner1.jpg"></div>
 				</div>
-				<div class="mui-slider-indicator">
-					<div class="mui-indicator mui-active"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
-				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
 			</div>
+
 			<!--导航-->
 			<ul class="mui-table-view mui-grid-view mui-grid-9">
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-					<a href="#">
-						<img src="img/1.png" />
-						<div class="mui-media-body">卖闲置</div>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#" class="TOD">
+						<i class="mui-icon mdui-icon material-icons" style="color: #FF5252;">&#xe8f8;</i>
+						<div class="mui-media-body" style="font-size: 0.8rem;">卖闲置</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-					<a href="#">
-						<img src="img/2.png" />
-						<div class="mui-media-body">逛社区</div>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#" class="TJ">
+						<i class="mui-icon mdui-icon material-icons" style="color: #FF5252;">&#xe8d3;</i>
+						<div class="mui-media-body" style="font-size: 0.8rem;">逛社区</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-					<a href="#">
-						<img src="img/8.png" />
-						<div class="mui-media-body">找兼职</div>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#" class="TJ">
+						<i class="mui-icon mdui-icon material-icons" style="color: #FF5252;">&#xe8f9;</i>
+						<div class="mui-media-body" style="font-size: 0.8rem;">找兼职</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-					<a href="#">
-						<img src="img/4.png" />
-						<div class="mui-media-body">找代购</div>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#" class="TIB">
+						<i class="mui-icon mdui-icon material-icons" style="color: #FF5252;">&#xe8ca;</i>
+						<div class="mui-media-body" style="font-size: 0.8rem;">找代购</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-					<a href="#">
-						<img src="img/5.png" />
-						<div class="mui-media-body">租房子</div>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#" class="TC">
+						<i class="mui-icon mdui-icon material-icons" style="color: #FF5252;">&#xe0af;</i>
+						<div class="mui-media-body" style="font-size: 0.8rem;">租房子</div>
 					</a>
 				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#" class="TJ">
+						<i class="mui-icon mdui-icon material-icons" style="color: #FF5252;">&#xe87c;</i>
+						<div class="mui-media-body" style="font-size: 0.8rem;">找中介</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
 					<a href="#">
-						<img src="img/7.png" />
-						<div class="mui-media-body">找中介</div>
+						<i class="mui-icon mdui-icon material-icons" style="color: #FF5252;">&#xe7fe;</i>
+						<div class="mui-media-body" style="font-size: 0.8rem;">IDL招募</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3">
+					<a href="#">
+						<i class="mui-icon mdui-icon material-icons" style="color: #FF5252;">&#xe7fd;</i>
+						<div class="mui-media-body" style="font-size: 0.8rem;">DL招募</div>
 					</a>
 				</li>
 			</ul>
-			<!--活动-->
-			<div class="huodong">
-				<h5>最新活动</h5>
+		</div>
+		<div class="mdui-container-fluid">
+			<div class="mdui-tab mdui-tab-full-width" mdui-tab>
+				<a href="#example1-tab1" class="mdui-ripple">
+					<i class="mdui-icon material-icons">&#xe871;</i>
+					<label>精品二手</label>
+				</a>
+				<a href="#example1-tab2" class="mdui-ripple">
+					<i class="mdui-icon material-icons">&#xe0af;</i>
+					<label>精品房源</label>
+				</a>
+				<a href="#example1-tab3" class="mdui-ripple">
+					<i class="mdui-icon material-icons">&#xe0cf;</i>
+					<label>招募信息</label>
+				</a>
 			</div>
-			<div class="mui-row first">
-				<div class="mui-col-xs-6">
-					<img src="img/jf-13.png" />
-				</div>
-				<div class="mui-col-xs-6">
-					<img src="img/jf-14.png" />
-				</div>
+			<div id="example1-tab1" class="mdui-p-a-2">
+				<ul class="mdui-list">
+					<li class="mdui-list-item">
+						<div class="mdui-list-item-avatar"><img src="img/256.png" /></div>
+						<div class="mdui-list-item-content">猫山狗海</div>
+						<span class="mdui-text-color-red">¥150</span>
+					</li>
+					<div class="mdui-row-xs-3 mdui-row-sm-4 mdui-row-md-5 mdui-row-lg-6 mdui-row-xl-7 mdui-grid-list">
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/apic23124.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/zzpic9780.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/zzpic10410.jpg" />
+							</div>
+						</div>
+					</div>
+					<p class="mdui-typo-body-1">99新相机出售，外观完美无瑕疵。成像清晰，需要的请联系我！</p>
+					<div class="mdui-typo">
+						<hr/>
+					</div>
+					<li class="mdui-list-item">
+						<div class="mdui-list-item-avatar"><img src="img/261.png" /></div>
+						<div class="mdui-list-item-content">大咖酱</div>
+						<span class="mdui-text-color-red">¥3350</span>
+					</li>
+					<div class="mdui-row-xs-3 mdui-row-sm-4 mdui-row-md-5 mdui-row-lg-6 mdui-row-xl-7 mdui-grid-list">
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/notbook1.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/notbook2.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/notbook3.jpg" />
+							</div>
+						</div>
+					</div>
+					<p class="mdui-typo-body-1">90新笔记本出售，外观完美无瑕疵。大型游戏运行流程，需要的请联系我！</p>
+					<div class="mdui-typo">
+						<hr/>
+					</div>
+					<li class="mdui-list-item">
+						<div class="mdui-list-item-avatar"><img src="img/270.png" /></div>
+						<div class="mdui-list-item-content">CJluke</div>
+						<span class="mdui-text-color-red">¥250</span>
+					</li>
+					<div class="mdui-row-xs-3 mdui-row-sm-4 mdui-row-md-5 mdui-row-lg-6 mdui-row-xl-7 mdui-grid-list">
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/yys2.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/yys3.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/yys4.jpg" />
+							</div>
+						</div>
+					</div>
+					<p class="mdui-typo-body-1">阴阳师(相知相依)账号出售，里面有满SSR式神，极品御魂，需要的小伙伴速联系我哦！</p>
+					<div class="mdui-typo">
+						<hr/>
+					</div>
+				</ul>
 			</div>
-			<div class="mui-row">
-				<div class="mui-col-xs-6">
-					<img src="img/jf-15.png" />
-				</div>
-				<div class="mui-col-xs-6">
-					<img src="img/jf.png" />
-				</div>
+			<div id="example1-tab2" class="mdui-p-a-2">
+				<ul class="mdui-list">
+					<li class="mdui-list-item">
+						<div class="mdui-list-item-avatar"><img src="img/258.png" /></div>
+						<div class="mdui-list-item-content">月下独酌</div>
+						<span class="mdui-text-color-red">¥1500／月</span>
+					</li>
+					<div class="mdui-row-xs-3 mdui-row-sm-4 mdui-row-md-5 mdui-row-lg-6 mdui-row-xl-7 mdui-grid-list">
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/home1.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/home2.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/home3.jpg" />
+							</div>
+						</div>
+					</div>
+					<p class="mdui-typo-body-1">江月路现有一套一室一厅精品房子出租，周边环境优美，基础设施齐全。有意者请联系我！</p>
+					<div class="mdui-typo">
+						<hr/>
+					</div>
+					<li class="mdui-list-item">
+						<div class="mdui-list-item-avatar"><img src="img/263.png" /></div>
+						<div class="mdui-list-item-content">嘤嘤怪</div>
+						<span class="mdui-text-color-red">¥1435／月</span>
+					</li>
+					<div class="mdui-row-xs-3 mdui-row-sm-4 mdui-row-md-5 mdui-row-lg-6 mdui-row-xl-7 mdui-grid-list">
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/home4.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/home5.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/home6.jpg" />
+							</div>
+						</div>
+					</div>
+					<p class="mdui-typo-body-1">秀沿路现有一套两室一厅房子需要出租，房内设施齐全，上网快，交通方便，有意者请联系我！</p>
+					<div class="mdui-typo">
+						<hr/>
+					</div>
+					<li class="mdui-list-item">
+						<div class="mdui-list-item-avatar"><img src="img/260.png" /></div>
+						<div class="mdui-list-item-content">开家烤肉店</div>
+						<span class="mdui-text-color-red">¥1500／月</span>
+					</li>
+					<div class="mdui-row-xs-3 mdui-row-sm-4 mdui-row-md-5 mdui-row-lg-6 mdui-row-xl-7 mdui-grid-list">
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/home7.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/home8.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/home9.jpg" />
+							</div>
+						</div>
+					</div>
+					<p class="mdui-typo-body-1">南京路现有一套一室一厅精品房子出租，周边环境优美，基础设施齐全。有意者请联系我！</p>
+					<div class="mdui-typo">
+						<hr/>
+					</div>
+				</ul>
 			</div>
-			<!--随机广告-->
-			<div class="mui-row" style="margin-top: 5px;">
-				<div class="mui-col-xs-12">
-					<img src="img/birthday.png" />
-				</div>
+			<div id="example1-tab3" class="mdui-p-a-2">
+				<ul class="mdui-list">
+					<li class="mdui-list-item">
+						<div class="mdui-list-item-avatar"><img src="img/logo3.jpg" /></div>
+						<div class="mdui-list-item-content">昌硕科技(上海)</div>
+						<span class="mdui-text-color-red">¥5000／月</span>
+					</li>
+					<div class="mdui-row-xs-3 mdui-row-sm-4 mdui-row-md-5 mdui-row-lg-6 mdui-row-xl-7 mdui-grid-list">
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/cs1.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/cs2.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/cs3.png" />
+							</div>
+						</div>
+					</div>
+					<p class="mdui-typo-body-1">昌硕科技(上海)现开启IDL招募活动，工作岗位丰富，公司福利好，包五险一金...</p>
+					<div class="mdui-typo">
+						<hr/>
+					</div>
+					
+					<li class="mdui-list-item">
+						<div class="mdui-list-item-avatar"><img src="img/260.png" /></div>
+						<div class="mdui-list-item-content">大咖中介(上海)</div>
+						<span class="mdui-text-color-red">¥150／日</span>
+					</li>
+					<div class="mdui-row-xs-3 mdui-row-sm-4 mdui-row-md-5 mdui-row-lg-6 mdui-row-xl-7 mdui-grid-list">
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/xiuyan1.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/xiuyan2.jpg" />
+							</div>
+						</div>
+						<div class="mdui-col">
+							<div class="mdui-grid-tile">
+								<img class="mdui-img-rounded" src="img/xiuyan1.jpg" />
+							</div>
+						</div>
+					</div>
+					<p class="mdui-typo-body-1">现秀沿路有一批零时工招募，日结，需要打零时工的速来联系，手机号码1875256554...</p>
+					<div class="mdui-typo">
+						<hr/>
+					</div>
+				</ul>
 			</div>
-			<!--闲置专区-->
-			<div class="huodong">
-				<h5>闲置专区</h5>
-			</div>
-			<div class="mui-row">
-				<div class="mui-col-xs-4">
-					<img src="img/fenlei-03.png" />
-				</div>
-				<div class="mui-col-xs-4">
-					<img src="img/fenlei-05.png" />
-				</div>
-				<div class="mui-col-xs-4">
-					<img src="img/fenlei-07.png" />
-				</div>
-			</div>
-			&nbsp;
 
 		</div>
 		<script src="../../js/mui.min.js"></script>
-		<script type="text/javascript" src="js/home.js" ></script>
+		<script type="text/javascript" src="../../mdui-v0.4.1/js/mdui.min.js"></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="js/home.js"></script>
 	</body>
 
 </html>

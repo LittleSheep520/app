@@ -8,7 +8,7 @@ document.getElementById('myMessage').addEventListener('tap', function() {
 				titleText: "我的消息",
 				titleColor: "#FFFFFF",
 				titleSize: "17px",
-				backgroundColor: "#DC143C",
+				backgroundColor: "#FF5252",
 				autoBackButton: true,
 				progress: { // 标题栏控件的进度条样式
 					color: "#FFFFFF", // 进度条颜色,默认值为"#00FF00"  
@@ -21,7 +21,7 @@ document.getElementById('myMessage').addEventListener('tap', function() {
 			}
 		},
 		show: {
-			aniShow: "zoom-fade-out"
+			aniShow: "slide-in-right"
 		},
 		waiting: {
 			title: '努力加载中...',
@@ -38,7 +38,7 @@ document.getElementById('myPost').addEventListener('tap', function() {
 				titleText: "我的帖子",
 				titleColor: "#FFFFFF",
 				titleSize: "17px",
-				backgroundColor: "#DC143C",
+				backgroundColor: "#FF5252",
 				autoBackButton: true,
 				progress: { // 标题栏控件的进度条样式
 					color: "#FFFFFF", // 进度条颜色,默认值为"#00FF00"  
@@ -51,7 +51,7 @@ document.getElementById('myPost').addEventListener('tap', function() {
 			}
 		},
 		show: {
-			aniShow: "zoom-fade-out"
+			aniShow: "slide-in-right"
 		},
 		waiting: {
 			title: '努力加载中...',
@@ -68,7 +68,7 @@ document.getElementById('myCollection').addEventListener('tap', function() {
 				titleText: "我的收藏",
 				titleColor: "#FFFFFF",
 				titleSize: "17px",
-				backgroundColor: "#DC143C",
+				backgroundColor: "#FF5252",
 				autoBackButton: true,
 				progress: { // 标题栏控件的进度条样式
 					color: "#FFFFFF", // 进度条颜色,默认值为"#00FF00"  
@@ -81,7 +81,7 @@ document.getElementById('myCollection').addEventListener('tap', function() {
 			}
 		},
 		show: {
-			aniShow: "zoom-fade-out"
+			aniShow: "slide-in-right"
 		},
 		waiting: {
 			title: '努力加载中...',
@@ -93,12 +93,13 @@ document.getElementById('personalData').addEventListener('tap', function() {
 	mui.openWindow({
 		url: 'personalDetails.html',
 		id: 'personalDetails.html',
+		preload: true,
 		styles: {
 			titleNView: {
 				titleText: "我的信息",
 				titleColor: "#FFFFFF",
 				titleSize: "17px",
-				backgroundColor: "#DC143C",
+				backgroundColor: "#FF5252",
 				autoBackButton: true,
 				progress: { // 标题栏控件的进度条样式
 					color: "#FFFFFF", // 进度条颜色,默认值为"#00FF00"  
@@ -111,7 +112,7 @@ document.getElementById('personalData').addEventListener('tap', function() {
 			}
 		},
 		show: {
-			aniShow: "zoom-fade-out"
+			aniShow: "slide-in-right"
 		},
 		waiting: {
 			title: '努力加载中...',
@@ -123,12 +124,13 @@ document.getElementById('changePassword').addEventListener('tap', function() {
 	mui.openWindow({
 		url: 'changePassword.html',
 		id: 'changePassword.html',
+		preload: true,
 		styles: {
 			titleNView: {
 				titleText: "修改密码",
 				titleColor: "#FFFFFF",
 				titleSize: "17px",
-				backgroundColor: "#DC143C",
+				backgroundColor: "#FF5252",
 				autoBackButton: true,
 				progress: { // 标题栏控件的进度条样式
 					color: "#FFFFFF", // 进度条颜色,默认值为"#00FF00"  
@@ -141,7 +143,7 @@ document.getElementById('changePassword').addEventListener('tap', function() {
 			}
 		},
 		show: {
-			aniShow: "zoom-fade-out"
+			aniShow: "slide-in-right"
 		},
 		waiting: {
 			title: '努力加载中...',

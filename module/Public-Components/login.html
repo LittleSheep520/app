@@ -5,161 +5,122 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" href="../../css/mui.min.css" />
-		<style>
-			.mui-btn-block {
-				padding: 6.5px 0;
-			}
-			
-			.mui-btn-danger {
-				background-color: #ED3341;
-			}
-			
-			.link-area {
-				display: block;
-				margin-top: 25px;
-				text-align: center;
-			}
-			
-			.spliter {
-				color: #bbb;
-				padding: 0px 8px;
-			}
-			
-			a {
-				color: #ED3341;
-			}
-			
-			.logo img {
-				width: 120px;
-				margin: 20px auto;
-				display: block;
-			}
-			
-			.password {
-				float: right;
-				padding-right: 5px;
-			}
-			
-			header.mui-bar {
-				background-color: rgba( 220, 20, 60, 1);
-			}
-			
-			header.mui-bar .mui-title {
-				color: #FFFFFF;
-			}
-			
-			.mui-pull-right {
-				color: #FFFFFF;
-			}
-			
-			.mui-plus .plus {
-				display: inline;
-			}
-			
-			.plus {
-				display: none;
-			}
-			
-			#topPopover {
-				position: fixed;
-				top: 16px;
-				right: 6px;
-			}
-			
-			#topPopover .mui-popover-arrow {
-				left: auto;
-				right: 6px;
-			}
-			
-			.mui-popover {
-				width: 250px;
-				height: 140px;
-			}
-		</style>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../mdui-v0.4.1/css/mdui.min.css" />
+		<link rel="stylesheet" href="css/login.css" />
 	</head>
 
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-menu mui-icon mui-icon-bars mui-pull-right" href="#topPopover"></a>
-			<h1 id="title" class="mui-title">密码登录</h1>
-		</header>
-		<div class="mui-content">
-			<div class="mui-content-padded">
-				<div class="logo"><img src="img/18.png" /></div>
-				<div class="mui-input-row">
-					<input type="text" id="account" name="account" class="mui-input-clear" placeholder="请输入手机号">
-				</div>
-				<div class="mui-input-row">
-					<input type="password" id="password" name="password" class="mui-input-password" placeholder="请输入密码">
-				</div>
-				<button type="button" id="login" class="mui-btn mui-btn-danger mui-btn-block">立即登录</button>
+	<body class="mdui-theme-primary-pink mdui-theme-accent-pink">
+		<div class="mdui-container">
+			<div class="logo">
+				<img src="img/g12.ico" />
+			</div>
+			<div class="mdui-textfield">
+				<i class="mdui-icon material-icons">&#xe853;</i>
+				<input class="mdui-textfield-input" id="account" name="account" type="text" placeholder="输入手机号" />
+			</div>
 
+			<div class="mdui-textfield">
+				<i class="mdui-icon material-icons">&#xe899;</i>
+				<input class="mdui-textfield-input" id="password" name="password" type="password" placeholder="输入个人密码" />
+			</div>
+			<button type="button" id="login" class="mdui-btn mdui-btn-block mdui-btn-raised mdui-ripple mdui-color-theme-accent">立即登录</button>
+			<div class="link-area">
+				<a id="forget_password">忘记密码?</a> <span class="spliter">|</span>
+				<a id="register">注册账号</a>
 			</div>
 		</div>
-		<!--右上角弹出菜单-->
-		<div id="topPopover" class="mui-popover">
-			<div class="mui-popover-arrow"></div>
-			<div class="mui-scroll-wrapper">
-				<div class="mui-scroll">
-					<ul class="mui-table-view">
-						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right" id="register">新手注册</a>
-						</li>
-						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right" id="phon_login">手机登录</a>
-						</li>
-						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right" id="forget_password">忘记密码</a>
-						</li>
-					</ul>
-				</div>
+		<!--悬浮按钮-->
+		<div class="mdui-fab-wrapper" mdui-fab="{trigger: 'click'}" id="fab">
+			<button class="mdui-fab mdui-ripple mdui-color-theme-accent" id="wrapper">
+    <!-- 默认显示的图标 -->
+    <i class="mdui-icon material-icons">add</i>
+    
+    <!-- 在拨号菜单开始打开时，平滑切换到该图标，若不需要切换图标，则可以省略该元素 -->
+    <i class="mdui-icon mdui-fab-opened material-icons">add</i>
+  </button>
+			<div class="mdui-fab-dial">
+				<button id="phon_login" type="button" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-blue"><i class="mdui-icon material-icons">&#xe325;</i></button>
 			</div>
-
 		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script src="../../js/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="../../mdui-v0.4.1/js/mdui.min.js"></script>
 		<script src="../../js/commons.js"></script>
 		<script src="js/login.js"></script>
 		<script type="text/javascript">
-			mui.init();
+			window.addEventListener('refresh', function(e) { //执行刷新
+				$('#account').val(null);
+				$('#password').val(null);
+				var inst = new mdui.Fab('#fab');
+				inst.close();
+			});
 			mui.plusReady(function() {
 				mui.back = disableBack;
+				//避免底部导航栏被输入法顶起的现象
+				var heigh = plus.display.resolutionHeight; //获得手机屏幕高度 
+				window.addEventListener('resize', function() //resize 件事监听软盘打开或关闭时的动作，
+					{
+						if(heigh == plus.display.resolutionHeight) //当软盘关闭时，屏幕的高等于原来的高
+						{
+							//当软盘关闭时，把隐藏的元素，显示出来
+							document.getElementById("wrapper").style.display = 'block';
+						} else {
+							// 当软盘弹出时，手机屏幕会被压缩，此时屏幕高度小于之前的， 隐藏被顶起的元素
+							document.getElementById("wrapper").style.display = 'none';
+						}
+					}, false);
 			})
-			mui('.mui-scroll-wrapper').scroll();
-			//手机登录
-			document.getElementById('phon_login').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'iphon-login.html',
-					id: 'iphon-login.html',
-					waiting: {
-						title: '努力加载中...',
-					}
-				})
 
-			})
-			//注册
-			document.getElementById('register').addEventListener('tap', function() {
-				mui.openWindow({
-					url: 'register.html',
-					id: 'register.html',
-					waiting: {
-						title: '努力加载中...',
-					}
-				})
-
-			})
-			//忘记密码
 			document.getElementById('forget_password').addEventListener('tap', function() {
 				mui.openWindow({
 					url: 'forget-password.html',
 					id: 'forget-password.html',
+					preload: true,
+					show: {
+						aniShow: "slide-in-right"
+					},
 					waiting: {
 						title: '努力加载中...',
-					}
-				})
-
-			})
+					},
+					styles: {
+						popGesture: 'hide'
+					},
+				});
+			}, false);
+			document.getElementById('register').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'register.html',
+					id: 'register.html',
+					preload: true,
+					show: {
+						aniShow: "slide-in-right"
+					},
+					waiting: {
+						title: '努力加载中...',
+					},
+					styles: {
+						popGesture: 'hide'
+					},
+				});
+			}, false);
+			document.getElementById('phon_login').addEventListener('tap', function() {
+				mui.openWindow({
+					url: 'iphon-login.html',
+					id: 'iphon-login.html',
+					preload: true,
+					show: {
+						aniShow: "slide-in-right"
+					},
+					waiting: {
+						title: '努力加载中...',
+					},
+					styles: {
+						popGesture: 'hide'
+					},
+				});
+			}, false);
 		</script>
 	</body>
 
