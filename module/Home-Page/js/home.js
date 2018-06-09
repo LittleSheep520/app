@@ -10,22 +10,19 @@ var swiper = new Swiper('.swiper-container', {
 	},
 
 });
-mui('ul').on('tap','.TOD', function() {
+mui('ul').on('tap', '.TOD', function() {
 	mui.openWindow({
-		id: 'post.html',
-		url: '../Post/post.html',
-		extras: {
-			type: 'TOD' //扩展参数
-		},
+		id: 'discarded_post',
+		url: '../Post/discarded_post.html',
 		styles: {
 			titleNView: {
-				titleText: "帖子列表",
+				titleText: "二手闲置",
 				titleColor: "#FFFFFF",
 				titleSize: "17px",
-				backgroundColor: "#FF5252",
+				backgroundColor: "#323232",
 				autoBackButton: true,
 				progress: { // 标题栏控件的进度条样式
-					color: "#000000", // 进度条颜色,默认值为"#00FF00"  
+					color: "FF0000", // 进度条颜色,默认值为"#00FF00"  
 					height: "1px" // 进度条高度,默认值为"2px"         
 				},
 				splitLine: { // 标题栏控件的底部分割线，类似borderBottom
@@ -39,22 +36,19 @@ mui('ul').on('tap','.TOD', function() {
 		}
 	});
 })
-mui('ul').on('tap','.TC', function() {
+mui('ul').on('tap', '.TC', function() {
 	mui.openWindow({
-		id: 'post.html',
-		url: '../Post/post.html',
-		extras: {
-			type: 'TC' //扩展参数
-		},
+		id: 'commodity_post',
+		url: '../Post/commodity_post.html',
 		styles: {
 			titleNView: {
-				titleText: "帖子列表",
+				titleText: "优惠商品",
 				titleColor: "#FFFFFF",
 				titleSize: "17px",
-				backgroundColor: "#FF5252",
+				backgroundColor: "#323232",
 				autoBackButton: true,
 				progress: { // 标题栏控件的进度条样式
-					color: "#000000", // 进度条颜色,默认值为"#00FF00"  
+					color: "FF0000", // 进度条颜色,默认值为"#00FF00"  
 					height: "1px" // 进度条高度,默认值为"2px"         
 				},
 				splitLine: { // 标题栏控件的底部分割线，类似borderBottom
@@ -68,22 +62,19 @@ mui('ul').on('tap','.TC', function() {
 		}
 	});
 })
-mui('ul').on('tap','.TJ', function() {
+mui('ul').on('tap', '.TJ', function() {
 	mui.openWindow({
-		id: 'post.html',
-		url: '../Post/post.html',
-		extras: {
-			type: 'TJ' //扩展参数
-		},
+		id: 'job_post',
+		url: '../Post/job_post.html',
 		styles: {
 			titleNView: {
-				titleText: "帖子列表",
+				titleText: "工作招聘",
 				titleColor: "#FFFFFF",
 				titleSize: "17px",
-				backgroundColor: "#FF5252",
+				backgroundColor: "#323232",
 				autoBackButton: true,
 				progress: { // 标题栏控件的进度条样式
-					color: "#000000", // 进度条颜色,默认值为"#00FF00"  
+					color: "FF0000", // 进度条颜色,默认值为"#00FF00"  
 					height: "1px" // 进度条高度,默认值为"2px"         
 				},
 				splitLine: { // 标题栏控件的底部分割线，类似borderBottom
@@ -97,22 +88,20 @@ mui('ul').on('tap','.TJ', function() {
 		}
 	});
 })
-mui('ul').on('tap','.TIB', function() {
+mui('ul').on('tap', '.TIB', function() {
 	mui.openWindow({
-		id: 'post.html',
-		url: '../Post/post.html',
-		extras: {
-			type: 'TIB' //扩展参数
-		},
+		id: 'purchase_post',
+		url: '../Post/purchase_post.html',
+		
 		styles: {
 			titleNView: {
-				titleText: "帖子列表",
+				titleText: "全球代购",
 				titleColor: "#FFFFFF",
 				titleSize: "17px",
-				backgroundColor: "#FF5252",
+				backgroundColor: "#323232",
 				autoBackButton: true,
 				progress: { // 标题栏控件的进度条样式
-					color: "#000000", // 进度条颜色,默认值为"#00FF00"  
+					color: "FF0000", // 进度条颜色,默认值为"#00FF00"  
 					height: "1px" // 进度条高度,默认值为"2px"         
 				},
 				splitLine: { // 标题栏控件的底部分割线，类似borderBottom

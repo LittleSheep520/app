@@ -152,43 +152,10 @@ function sendPostBtnBind() {
 			data: JSON.stringify(post),
 			success: function(result) {
 				if(!ajaxResultCheck(result)) return;
-				var list = plus.webview.all();
-				/*var log = "";
-				for(key in list) {
-					console.log(JSON.stringify(list[key].id))
-					log += JSON.stringify(list[key].id);
-				}*/
-				//mui.alert(log);
-				mui.alert("发布成功//TODO 跳转到帖子列表");
-				//1.调用自定事件，点击tab卡，切换到对应tab
-				//mui.fire(null,'gohome',{id:"HBuilder"})
-				mui.openWindow({
-					id: 'post.html',
-					url: '../Post/post.html',
-					styles: {
-						titleNView: {
-							titleText: "帖子列表",
-							titleColor: "#FFFFFF",
-							titleSize: "17px",
-							backgroundColor: "#DC143C",
-							autoBackButton: true,
-							progress: { // 标题栏控件的进度条样式
-								color: "#FFFFFF", // 进度条颜色,默认值为"#00FF00"  
-								height: "1px" // 进度条高度,默认值为"2px"         
-							},
-							splitLine: { // 标题栏控件的底部分割线，类似borderBottom
-								color: "#CCCCCC", // 分割线颜色,默认值为"#CCCCCC"  
-								height: "1px" // 分割线高度,默认值为"2px"
-							}
-						}
-					},
-					show: {
-						aniShow: "zoom-fade-out"
-					},
-					waiting: {
-						title: '努力加载中...',
-					}
-				});
+				location.reload();
+				mui.toast("发布成功,可前往查看帖子");
+				
+				
 			}
 		});
 	});

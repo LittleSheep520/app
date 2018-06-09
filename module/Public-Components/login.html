@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="css/login.css" />
 	</head>
 
-	<body class="mdui-theme-primary-pink mdui-theme-accent-pink">
+	<body class="mdui-theme-primary-indigo mdui-theme-accent-indigo">
 		<div class="mdui-container">
 			<div class="logo">
 				<img src="img/g12.ico" />
@@ -25,7 +25,7 @@
 				<i class="mdui-icon material-icons">&#xe899;</i>
 				<input class="mdui-textfield-input" id="password" name="password" type="password" placeholder="输入个人密码" />
 			</div>
-			<button type="button" id="login" class="mdui-btn mdui-btn-block mdui-btn-raised mdui-ripple mdui-color-theme-accent">立即登录</button>
+			<button type="button" id="login" class="mdui-btn mdui-btn-block mdui-btn-raised mdui-ripple mdui-color-grey-800">立即登录</button>
 			<div class="link-area">
 				<a id="forget_password">忘记密码?</a> <span class="spliter">|</span>
 				<a id="register">注册账号</a>
@@ -85,8 +85,14 @@
 						title: '努力加载中...',
 					},
 					styles: {
-						popGesture: 'hide'
-					},
+						titleNView: {
+							titleText: "忘记密码",
+							titleColor: "#FFFFFF",
+							titleSize: "17px",
+							backgroundColor: "#323232",
+							autoBackButton: true
+						}
+					}
 				});
 			}, false);
 			document.getElementById('register').addEventListener('tap', function() {
@@ -101,8 +107,14 @@
 						title: '努力加载中...',
 					},
 					styles: {
-						popGesture: 'hide'
-					},
+						titleNView: {
+							titleText: "用户注册",
+							titleColor: "#FFFFFF",
+							titleSize: "17px",
+							backgroundColor: "#323232",
+							autoBackButton: true
+						}
+					}
 				});
 			}, false);
 			document.getElementById('phon_login').addEventListener('tap', function() {
@@ -117,8 +129,14 @@
 						title: '努力加载中...',
 					},
 					styles: {
-						popGesture: 'hide'
-					},
+						titleNView: {
+							titleText: "验证码登录",
+							titleColor: "#FFFFFF",
+							titleSize: "17px",
+							backgroundColor: "#323232",
+							autoBackButton: true
+						}
+					}
 				});
 			}, false);
 		</script>

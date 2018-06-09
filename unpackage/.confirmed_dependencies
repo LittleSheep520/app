@@ -76,7 +76,11 @@
 	},
 	"module/Home-Page/home.html": {
 		"refer": [
-			"module/Post/post.html"
+			"module/Post/post.html",
+			"module/Post/commodity_post.html",
+			"module/Post/discarded_post.html",
+			"module/Post/job_post.html",
+			"module/Post/purchase_post.html"
 		],
 		"resources": [
 			"module/Home-Page/js/home.js",
@@ -93,7 +97,8 @@
 	"module/Post/post.html": {
 		"refer": [
 			"module/Post/post-details.html",
-			"module/Public-Components/user_operate.html"
+			"module/Public-Components/user_operate.html",
+			"module/Post/detail.html"
 		],
 		"resources": [
 			"module/Post/img/cbd.jpg",
@@ -174,6 +179,27 @@
 		"refer": [
 			"module/Public-Components/login.html",
 			"module/Public-Components/register.html"
+		]
+	},
+	"module/Post/commodity_post.html": {
+		"refer": [
+			"module/Post/commodity_detail.html"
+		]
+	},
+	"module/Post/discarded_post.html": {
+		"refer": [
+			"module/Post/discarded_detail.html"
+		]
+	},
+	"module/Post/job_post.html": {
+		"refer": [
+			"module/Post/job_detail.html"
+		]
+	},
+	"module/Post/purchase_post.html": {
+		"refer": [
+			"module/Post/discarded_detail.html",
+			"module/Post/purchase_detail.html"
 		]
 	}
 }

@@ -5,58 +5,46 @@
 		<meta charset="UTF-8">
 		<title>帖子发布</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../../css/mui.min.css" rel="stylesheet"/>
-		<link rel="stylesheet" href="css/mui.picker.min.css"/>
-		<link rel="stylesheet" href="css/mui.poppicker.css"/>
-		<link rel="stylesheet" href="css/addImg.css"/>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+		<link rel="stylesheet" href="css/mui.poppicker.css" />
+		<link rel="stylesheet" href="css/addImg.css" />
 		<style>
-			h5 {
-				margin: 5px;
-			}
-			.logo img {
-				width: 120px;
-				margin: 20px auto;
-				display: block;
-			}
 			.mui-btn {
 				padding: 8px;
 			}
+			/*h5 {
+				background-color: #FFFFFF;
+				border-left: 3px solid red;
+				padding: 8px;
+				line-height: 1.42;
+			}*/
 		</style>
 	</head>
 
 	<body>
 		<div class="mui-content">
-			<div class="mui-content-padded post-div" style="margin: 5px;">
-				<div class="logo"><img src="img/img1.png" /></div>
-				<!--
-				<h5>帖子标题：</h5>
-				<div class="mui-input-row post-title">
-					<input type="text" class="mui-input-clear" placeholder="请输入帖子标题">
-				</div>
-                -->
+			<div class="mui-content-padded">
 				<h5>帖子分类：</h5>
-				<div class="mui-input-row post-type">
 				<div class="mui-input-row">
-					<input type="text" id="sort" class="mui-input-clear" placeholder="请选择帖子类型" readonly>
-				</div>
+					<input type="text" id="sort" placeholder="请选择帖子类型" readonly>
 				</div>
 				<!--public-->
 				<h5>图片添加：</h5>
 				<div id='image-list' class="row image-list">
 				</div>
-				
 				<!--卖商品-->
 				<div class="various-type TC">
 					<h5 class="">标题：</h5>
 					<div class="mui-input-row post-discription ">
-						<textarea id="textarea" rows="3" class="title" placeholder="一句话介绍你的宝贝"></textarea>
+						<textarea id="textarea" rows="2" class="title" placeholder="一句话介绍你的宝贝"></textarea>
 					</div>
-					
+
 					<h5 class="">详细描述：</h5>
 					<div class="mui-input-row post-discription ">
 						<textarea id="textarea" rows="3" class="description" placeholder=""></textarea>
 					</div>
-	
+
 					<h5 class="">商品价格：</h5>
 					<div class="mui-input-row">
 						<input type="text" class="mui-input-clear price" placeholder="">
@@ -77,12 +65,12 @@
 					<div class="mui-input-row post-discription ">
 						<textarea id="textarea" rows="3" class="title" placeholder="一句话介绍你的代购商品"></textarea>
 					</div>
-					
+
 					<h5 class="">详细描述：</h5>
 					<div class="mui-input-row post-discription ">
 						<textarea id="textarea" rows="3" class="description" placeholder=""></textarea>
 					</div>
-	
+
 					<h5 class="">商品价格：</h5>
 					<div class="mui-input-row">
 						<input type="text" class="mui-input-clear price" placeholder="">
@@ -96,19 +84,19 @@
 						<input type="text" data-options='{"type":"datetime","beginYear":2010,"endYear":2030}' class="mui-input-clear endDate date" placeholder="请选择时间">
 					</div>
 				</div>
-				
+
 				<!--找工作-->
 				<div class="various-type TJ">
 					<h5 class="">标题：</h5>
 					<div class="mui-input-row post-discription ">
 						<textarea id="textarea" rows="3" class="title" placeholder="一句话介绍你的工作内容"></textarea>
 					</div>
-					
+
 					<h5 class="">详细描述：</h5>
 					<div class="mui-input-row post-discription ">
 						<textarea id="textarea" rows="3" class="description" placeholder=""></textarea>
 					</div>
-	
+
 					<h5 class="">最低薪酬：</h5>
 					<div class="mui-input-row">
 						<input type="text" class="mui-input-clear minSalary" placeholder="">
@@ -126,19 +114,19 @@
 						<input type="text" data-options='{"type":"datetime","beginYear":2010,"endYear":2030}' class="mui-input-clear endDate date" placeholder="请选择时间">
 					</div>
 				</div>
-				
+
 				<!--卖闲置-->
 				<div class="various-type TOD">
 					<h5 class="">标题：</h5>
 					<div class="mui-input-row post-discription ">
 						<textarea id="textarea" rows="3" class="title" placeholder="一句话介绍你的宝贝"></textarea>
 					</div>
-					
+
 					<h5 class="">详细描述：</h5>
 					<div class="mui-input-row post-discription ">
 						<textarea id="textarea" rows="3" class="description" placeholder=""></textarea>
 					</div>
-	
+
 					<h5 class="">商品价格：</h5>
 					<div class="mui-input-row">
 						<input type="text" class="mui-input-clear price" placeholder="">
@@ -152,23 +140,22 @@
 						<input type="text" data-options='{"type":"datetime","beginYear":2010,"endYear":2030}' class="mui-input-clear endDate date" placeholder="请选择时间">
 					</div>
 				</div>
-				
 
 				<!--public-->
 				<div class="mui-button-row">
-					<button type="button" id="sendPostBtn" class="mui-btn mui-btn-primary mui-btn-block">确认发布</button>	
+					<button type="button" id="sendPostBtn" class="mui-btn mui-btn-primary mui-btn-block">确认发布</button>
 				</div>
 			</div>
 
 		</div>
-		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js" ></script>
-		
+		<script type="text/javascript" src="../../js/jquery-2.1.0.min.js"></script>
+
 		<script src="../../js/mui.min.js"></script>
-		<script type="text/javascript" src="js/mui.picker.min.js" ></script>
-		<script type="text/javascript" src="js/mui.poppicker.js" ></script>
-		<script type="text/javascript" src="js/addImg.js" ></script>
+		<script type="text/javascript" src="js/mui.picker.min.js"></script>
+		<script type="text/javascript" src="js/mui.poppicker.js"></script>
+		<script type="text/javascript" src="js/addImg.js"></script>
 		<script type="text/javascript" src="../../js/commons.js"></script>
-		<script type="text/javascript" src="js/release.js" ></script>
+		<script type="text/javascript" src="js/release.js"></script>
 	</body>
 
 </html>

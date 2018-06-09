@@ -281,7 +281,11 @@
 					"css/iconfont.css"
 				],
 				"refer": [
-					"module/Post/post.html"
+					"module/Post/post.html",
+					"module/Post/commodity_post.html",
+					"module/Post/discarded_post.html",
+					"module/Post/job_post.html",
+					"module/Post/purchase_post.html"
 				],
 				"priority": 0
 			},
@@ -296,7 +300,8 @@
 				],
 				"refer": [
 					"module/Post/post-details.html",
-					"module/Public-Components/user_operate.html"
+					"module/Public-Components/user_operate.html",
+					"module/Post/detail.html"
 				],
 				"priority": 0
 			},
@@ -379,6 +384,35 @@
 				"refer": [
 					"module/Public-Components/login.html",
 					"module/Public-Components/register.html"
+				],
+				"priority": 0
+			},
+			"module/Post/commodity_post.html": {
+				"resources": [],
+				"refer": [
+					"module/Post/commodity_detail.html"
+				],
+				"priority": 0
+			},
+			"module/Post/discarded_post.html": {
+				"resources": [],
+				"refer": [
+					"module/Post/discarded_detail.html"
+				],
+				"priority": 0
+			},
+			"module/Post/job_post.html": {
+				"resources": [],
+				"refer": [
+					"module/Post/job_detail.html"
+				],
+				"priority": 0
+			},
+			"module/Post/purchase_post.html": {
+				"resources": [],
+				"refer": [
+					"module/Post/discarded_detail.html",
+					"module/Post/purchase_detail.html"
 				],
 				"priority": 0
 			}
